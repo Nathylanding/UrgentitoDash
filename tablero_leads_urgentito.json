@@ -174,10 +174,10 @@
         "mes": "2026-11",
         "mes_anterior": "2026-10",
         "dias_comparados": 26,
-        "gasto_actual": 4614.37,
+        "gasto_actual": 4614.5,
         "gasto_mes_pasado": 5866.93,
         "var_gasto": {
-          "abs": -1252.56,
+          "abs": -1252.43,
           "pct": -21.3
         },
         "leads_actual": 1948,
@@ -220,10 +220,10 @@
         "mes": "2026-11",
         "mes_anterior": "2026-10",
         "dias_comparados": 26,
-        "gasto_actual": 1180.27,
+        "gasto_actual": 1180.4,
         "gasto_mes_pasado": 1316.19,
         "var_gasto": {
-          "abs": -135.92,
+          "abs": -135.79,
           "pct": -10.3
         },
         "leads_actual": 812,
@@ -2703,10 +2703,10 @@
       "fecha": "2026-11-26",
       "scope": "Juntos",
       "leads": 58,
-      "spend": 73.1,
+      "spend": 73.23,
       "cpl_diario": 1.26,
       "promedio_movil_7d": 88.43,
-      "impressions": 19207,
+      "impressions": 19237,
       "clicks": 476,
       "fecha_mes_pasado": "2026-10-26",
       "leads_mes_pasado": 94,
@@ -2716,7 +2716,7 @@
       },
       "spend_mes_pasado": 226.62,
       "var_spend_vs_mes_pasado": {
-        "abs": -153.52,
+        "abs": -153.39,
         "pct": -67.7
       }
     },
@@ -7659,10 +7659,10 @@
       "fecha": "2026-11-26",
       "scope": "Urgentito Ambato",
       "leads": 34,
-      "spend": 34.61,
+      "spend": 34.74,
       "cpl_diario": 1.02,
       "promedio_movil_7d": 61.57,
-      "impressions": 10660,
+      "impressions": 10690,
       "clicks": 312,
       "fecha_mes_pasado": "2026-10-26",
       "leads_mes_pasado": 29,
@@ -7672,8 +7672,8 @@
       },
       "spend_mes_pasado": 52.85,
       "var_spend_vs_mes_pasado": {
-        "abs": -18.24,
-        "pct": -34.5
+        "abs": -18.11,
+        "pct": -34.3
       }
     }
   ],
@@ -8429,10 +8429,10 @@
         "campaign_name": "🟢 [INTERMEDIACION][FORMS][NOV]",
         "status": "ACTIVE",
         "daily_budget": 29.0,
-        "gasto_actual": 716.59,
+        "gasto_actual": 716.65,
         "gasto_mes_pasado": 745.61,
         "var_gasto": {
-          "abs": -29.02,
+          "abs": -28.96,
           "pct": -3.9
         },
         "leads_actual": 220,
@@ -8467,10 +8467,10 @@
         "campaign_name": "[LEADS][VENTAS][CREDITO][URG AMBATO][NOV]",
         "status": "ACTIVE",
         "daily_budget": 15.0,
-        "gasto_actual": 178.09,
+        "gasto_actual": 178.13,
         "gasto_mes_pasado": 0.0,
         "var_gasto": {
-          "abs": 178.09,
+          "abs": 178.13,
           "pct": null
         },
         "leads_actual": 65,
@@ -8562,10 +8562,10 @@
         "campaign_name": "[Form OK][Reclutamiento Asesores][Ambato][Nov2026]",
         "status": "ACTIVE",
         "daily_budget": 0.0,
-        "gasto_actual": 36.32,
+        "gasto_actual": 36.35,
         "gasto_mes_pasado": 0.0,
         "var_gasto": {
-          "abs": 36.32,
+          "abs": 36.35,
           "pct": null
         },
         "leads_actual": 63,
@@ -17880,7 +17880,7 @@
       "campaign_name": "🟢 [INTERMEDIACION][FORMS][NOV]",
       "status": "ACTIVE",
       "daily_budget": 29.0,
-      "spend": 16.34,
+      "spend": 16.4,
       "leads": 5
     },
     {
@@ -17891,7 +17891,7 @@
       "campaign_name": "[LEADS][VENTAS][CREDITO][URG AMBATO][NOV]",
       "status": "ACTIVE",
       "daily_budget": 15.0,
-      "spend": 9.1,
+      "spend": 9.14,
       "leads": 17
     },
     {
@@ -17902,7 +17902,7 @@
       "campaign_name": "[Form OK][Reclutamiento Asesores][Ambato][Nov2026]",
       "status": "ACTIVE",
       "daily_budget": 0.0,
-      "spend": 9.17,
+      "spend": 9.2,
       "leads": 12
     }
   ]
