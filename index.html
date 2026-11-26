@@ -3,16 +3,17 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Comparativa Diaria de Leads y Presupuesto &mdash; Urgentito Talleres &amp; Ambato</title>
+  <title>Urgentito &mdash; Comparativa Diaria de Leads y Presupuesto</title>
   <style>
     :root {
-      --bg: #07111e;
-      --card: #0d1c2e;
-      --card-2: #12253c;
-      --border: #1e3754;
-      --text: #eef4fb;
-      --muted: #8ea5c0;
-      --accent: #38bdf8;
+      --bg: #0b0b0c;
+      --card: #141416;
+      --card-2: #1c1c20;
+      --border: #2a2a2f;
+      --text: #ffffff;
+      --muted: #b0b0b8;
+      --urgentito: #f0531c;
+      --urgentito-soft: rgba(240, 83, 28, 0.16);
       --good: #22c55e;
       --bad: #ef4444;
     }
@@ -29,14 +30,23 @@
       display: flex;
       flex-wrap: wrap;
       justify-content: space-between;
-      align-items: baseline;
-      gap: 12px;
-      margin-bottom: 16px;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 18px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--border);
     }
-    h1 {
+    .brand-title {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .brand-title h1 {
       margin: 0;
-      font-size: 1.45rem;
-      font-weight: 700;
+      font-size: 1.65rem;
+      font-weight: 800;
+      letter-spacing: 0.4px;
+      color: var(--text);
     }
     #meta-info {
       color: var(--muted);
@@ -70,19 +80,15 @@
       padding: 8px 14px;
       border-radius: 8px;
       cursor: pointer;
-      font-weight: 600;
-      font-size: 0.9rem;
+      font-weight: 700;
+      font-size: 0.88rem;
+      transition: background 0.15s ease, color 0.15s ease;
     }
     .scope-btn.active {
-      background: var(--accent);
-      color: #04101c;
+      background: var(--urgentito);
+      color: #ffffff;
     }
-    .filters {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      align-items: center;
-    }
+    .filters { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
     .filter-box {
       display: flex;
       align-items: center;
@@ -93,7 +99,7 @@
       padding: 6px 10px;
       font-size: 0.85rem;
     }
-    .filter-box label { color: var(--muted); font-weight: 600; }
+    .filter-box label { color: var(--urgentito); font-weight: 700; }
     select, input[type="search"] {
       background: transparent;
       color: var(--text);
@@ -103,15 +109,30 @@
     }
     select option { background: var(--card); color: var(--text); }
     input[type="search"] { min-width: 180px; }
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+      margin-bottom: 18px;
+    }
+    @media (max-width: 900px) { .kpi-grid { grid-template-columns: 1fr; } }
+    .kpi-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-top: 3px solid var(--urgentito);
+      border-radius: 12px;
+      padding: 14px 16px;
+    }
+    .kpi-label { color: var(--muted); font-size: 0.8rem; font-weight: 700; letter-spacing: 0.3px; }
+    .kpi-val { font-size: 1.55rem; font-weight: 800; margin: 6px 0 4px; color: var(--text); }
+    .kpi-sub { font-size: 0.84rem; color: var(--muted); }
     .grid-2 {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 18px;
       margin-bottom: 18px;
     }
-    @media (max-width: 960px) {
-      .grid-2 { grid-template-columns: 1fr; }
-    }
+    @media (max-width: 960px) { .grid-2 { grid-template-columns: 1fr; } }
     .panel {
       background: var(--card);
       border: 1px solid var(--border);
@@ -125,62 +146,65 @@
       gap: 8px;
       margin-bottom: 12px;
     }
-    .panel-title {
-      margin: 0;
-      font-size: 1rem;
-      font-weight: 700;
-    }
-    .panel-sub {
+    .panel-title { margin: 0; font-size: 1rem; font-weight: 700; color: var(--text); }
+    .panel-sub { color: var(--muted); font-size: 0.82rem; }
+    .legend-row {
+      display: flex;
+      gap: 16px;
+      font-size: 0.8rem;
       color: var(--muted);
-      font-size: 0.82rem;
+      margin-bottom: 8px;
     }
-    canvas {
-      width: 100%;
-      height: 290px;
-      display: block;
-    }
-    .table-wrap {
-      overflow-x: auto;
-      margin-top: 10px;
-    }
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 0.88rem;
-    }
+    .legend-item { display: inline-flex; align-items: center; gap: 6px; }
+    .dot-curr { width: 14px; height: 3px; background: var(--urgentito); display: inline-block; }
+    .dot-prev { width: 14px; height: 2px; border-top: 2px dashed #9ca3af; display: inline-block; }
+    canvas { width: 100%; height: 290px; display: block; }
+    .table-wrap { overflow-x: auto; margin-top: 10px; }
+    table { width: 100%; border-collapse: collapse; font-size: 0.88rem; }
     th, td {
       padding: 10px 12px;
       border-bottom: 1px solid var(--border);
       text-align: left;
       white-space: nowrap;
     }
-    th { color: var(--muted); font-weight: 600; background: var(--card-2); }
+    th { color: var(--muted); font-weight: 700; background: var(--card-2); }
     .num { text-align: right; font-variant-numeric: tabular-nums; }
-    .pos { color: var(--good); }
-    .neg { color: var(--bad); }
-    .empty-msg {
-      color: var(--muted);
-      text-align: center;
-      padding: 20px;
-      font-size: 0.9rem;
-    }
+    .pos { color: var(--good); font-weight: 600; }
+    .neg { color: var(--bad); font-weight: 600; }
+    .empty-msg { color: var(--muted); text-align: center; padding: 20px; font-size: 0.9rem; }
   </style>
 </head>
 <body>
   <div class="container">
     <header>
-      <h1>Comparativa Diaria de Leads y Presupuesto &mdash; Urgentito Talleres &amp; Ambato</h1>
+      <div class="brand-title">
+        <svg width="38" height="38" viewBox="0 0 100 100" aria-label="Logo Urgentito">
+          <rect width="100" height="100" rx="16" fill="#F0531C" />
+          <path d="M24 18 H40 C29 26 24 34 24 44 Z" fill="#FFFFFF" />
+          <path d="M24 47 C24 69 38 82 58 82 C70 82 78 77 83 71 C74 75 64 74 54 68 C42 61 38 48 38 33 V18 H24 Z" fill="#FFFFFF" />
+          <rect x="64" y="18" width="16" height="48" rx="2" fill="#FFFFFF" />
+        </svg>
+        <h1>Urgentito</h1>
+      </div>
       <div id="meta-info">Cargando datos...</div>
     </header>
 
     <div class="toolbar">
-      <div class="scope-group" id="scope-buttons" role="group" aria-label="Filtro de cuentas">
-        <button type="button" class="scope-btn active" data-scope="Juntos">Juntos (Talleres + Ambato)</button>
-        <button type="button" class="scope-btn" data-scope="Urgentito Talleres">Solo Urgentito Talleres</button>
-        <button type="button" class="scope-btn" data-scope="Urgentito Ambato">Solo Urgentito Ambato</button>
+      <div class="scope-group" id="scope-buttons" role="group" aria-label="Filtro por lugar">
+        <button type="button" class="scope-btn active" data-scope="Juntos">Todos los lugares</button>
+        <button type="button" class="scope-btn" data-scope="Urgentito Talleres">Talleres</button>
+        <button type="button" class="scope-btn" data-scope="Urgentito Ambato">Ambato</button>
       </div>
 
       <div class="filters">
+        <div class="filter-box">
+          <label for="location-select">LUGAR</label>
+          <select id="location-select">
+            <option value="Juntos">Todos los lugares</option>
+            <option value="Urgentito Talleres">Talleres</option>
+            <option value="Urgentito Ambato">Ambato</option>
+          </select>
+        </div>
         <div class="filter-box">
           <label for="month-filter">MES</label>
           <select id="month-filter"></select>
@@ -195,11 +219,17 @@
       </div>
     </div>
 
+    <div class="kpi-grid" id="kpi-grid"></div>
+
     <div class="grid-2">
       <section class="panel">
         <div class="panel-head">
           <h2 class="panel-title">Comparativa Diaria de Leads &mdash; Día del Mes (1 al 31)</h2>
           <span class="panel-sub">Mes seleccionado vs Mes pasado</span>
+        </div>
+        <div class="legend-row">
+          <span class="legend-item"><span class="dot-curr"></span> Mes seleccionado</span>
+          <span class="legend-item"><span class="dot-prev"></span> Mes pasado</span>
         </div>
         <canvas id="leads-chart" width="640" height="290"></canvas>
       </section>
@@ -208,6 +238,10 @@
         <div class="panel-head">
           <h2 class="panel-title">Comparativa Diaria de Gasto ($) &mdash; Día del Mes (1 al 31)</h2>
           <span class="panel-sub">Mes seleccionado vs Mes pasado</span>
+        </div>
+        <div class="legend-row">
+          <span class="legend-item"><span class="dot-curr"></span> Mes seleccionado</span>
+          <span class="legend-item"><span class="dot-prev"></span> Mes pasado</span>
         </div>
         <canvas id="spend-chart" width="640" height="290"></canvas>
       </section>
@@ -221,7 +255,7 @@
         <table>
           <thead>
             <tr>
-              <th>Marca</th>
+              <th>Lugar</th>
               <th>Campaña</th>
               <th>Estado</th>
               <th class="num">Presup. Config.</th>
@@ -239,54 +273,54 @@
   </div>
 
   <script>
-    let RAW = { metadata: {}, registros: [] };
+    let RAW = {};
     let currentScope = "Juntos";
 
     const fmtMoney = (v) =>
       "$" + Number(v || 0).toLocaleString("es-EC", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
 
-    const fmtNum = (v) =>
-      Number(v || 0).toLocaleString("es-EC", { minimumFractionDigits: 0, maximumFractionDigits: 1 });
+    const fmtInt = (v) =>
+      Number(v || 0).toLocaleString("es-EC", { minimumFractionDigits: 0, maximumFractionDigits: 0 });
 
-    function getPrevMonthKey(ym) {
-      const [yStr, mStr] = ym.split("-");
-      let y = parseInt(yStr, 10);
-      let m = parseInt(mStr, 10) - 1;
-      if (m < 1) {
-        m = 12;
-        y -= 1;
-      }
-      return `${y}-${String(m).padStart(2, "0")}`;
+    const fmtLugar = (brand) => {
+      if (brand === "Urgentito Talleres") return "Talleres";
+      if (brand === "Urgentito Ambato") return "Ambato";
+      return brand || "Todos los lugares";
+    };
+
+    function formatVarObj(varObj, invertGood = false, isCurrency = false) {
+      if (!varObj || varObj.abs === null || varObj.abs === undefined) return { text: "-", cls: "" };
+      const absVal = Number(varObj.abs);
+      const sign = absVal > 0 ? "+" : absVal < 0 ? "-" : "";
+      const absTxt = isCurrency ? fmtMoney(Math.abs(absVal)) : fmtInt(Math.abs(absVal));
+      const pctTxt = varObj.pct !== null && varObj.pct !== undefined ? ` (${sign}${Math.abs(varObj.pct).toFixed(1)}%)` : "";
+      let cls = "";
+      if (absVal > 0) cls = invertGood ? "neg" : "pos";
+      if (absVal < 0) cls = invertGood ? "pos" : "neg";
+      return { text: `${sign}${absTxt}${pctTxt}`, cls };
     }
 
-    function formatVar(curr, prev, invertGood = false, isCurrency = false) {
-      const diff = curr - prev;
-      const pct = prev > 0 ? ((diff / prev) * 100) : null;
-      const absStr = isCurrency ? fmtMoney(Math.abs(diff)) : fmtNum(Math.abs(diff));
-      const sign = diff > 0 ? "+" : diff < 0 ? "-" : "";
-      const pctStr = pct === null ? "" : ` (${sign}${Math.abs(pct).toFixed(1)}%)`;
-      let cls = "";
-      if (diff > 0) cls = invertGood ? "neg" : "pos";
-      if (diff < 0) cls = invertGood ? "pos" : "neg";
-      return { text: `${sign}${absStr}${pctStr}`, cls };
+    function setScope(nextScope) {
+      currentScope = nextScope;
+      document.querySelectorAll(".scope-btn").forEach((b) => {
+        b.classList.toggle("active", b.dataset.scope === nextScope);
+      });
+      const locSel = document.getElementById("location-select");
+      if (locSel && locSel.value !== nextScope) locSel.value = nextScope;
+      populateCampaignFilter();
+      renderAll();
     }
 
     function populateMonthFilter() {
       const sel = document.getElementById("month-filter");
       if (!sel) return;
-      const months = Array.from(
-        new Set((RAW.registros || []).map((r) => (r.date || "").slice(0, 7)).filter(Boolean))
-      ).sort().reverse();
-
+      const meses = (RAW.metadata?.meses_disponibles || []).slice().reverse();
       sel.innerHTML = "";
-      if (!months.length) {
-        const opt = document.createElement("option");
-        opt.value = "";
-        opt.textContent = "Sin meses";
-        sel.appendChild(opt);
+      if (!meses.length) {
+        sel.innerHTML = '<option value="">Sin meses</option>';
         return;
       }
-      months.forEach((m) => {
+      meses.forEach((m) => {
         const opt = document.createElement("option");
         opt.value = m;
         opt.textContent = m;
@@ -297,51 +331,55 @@
     function populateCampaignFilter() {
       const sel = document.getElementById("campaign-filter");
       if (!sel) return;
+      const ym = document.getElementById("month-filter")?.value || "";
       const prevVal = sel.value;
-      const names = Array.from(
-        new Set(
-          (RAW.registros || [])
-            .filter((r) => currentScope === "Juntos" || r.marca === currentScope)
-            .map((r) => r.campaign_name)
-            .filter(Boolean)
-        )
-      ).sort();
+      const list = (RAW.campanas_por_mes?.[ym] || []).filter(
+        (c) => currentScope === "Juntos" || c.brand === currentScope
+      );
+      const names = Array.from(new Set(list.map((c) => c.campaign_name))).sort();
 
       sel.innerHTML = '<option value="ALL">Todas las campañas</option>';
-      names.forEach((name) => {
+      names.forEach((n) => {
         const opt = document.createElement("option");
-        opt.value = name;
-        opt.textContent = name;
+        opt.value = n;
+        opt.textContent = n;
         sel.appendChild(opt);
       });
       if (names.includes(prevVal)) sel.value = prevVal;
     }
 
-    function getFilteredRows() {
-      const campVal = document.getElementById("campaign-filter")?.value || "ALL";
-      const searchVal = (document.getElementById("search-input")?.value || "").trim().toLowerCase();
+    function renderKpis(ym) {
+      const box = document.getElementById("kpi-grid");
+      if (!box) return;
+      const comp = RAW.comparativo_por_mes?.[ym]?.[currentScope];
+      if (!comp) {
+        box.innerHTML = "";
+        return;
+      }
+      const vg = formatVarObj(comp.var_gasto, true, true);
+      const vl = formatVarObj(comp.var_leads, false, false);
+      const vc = formatVarObj(comp.var_cpl, true, true);
 
-      return (RAW.registros || []).filter((r) => {
-        const okScope = currentScope === "Juntos" || r.marca === currentScope;
-        const okCamp = campVal === "ALL" || r.campaign_name === campVal;
-        const okSearch = !searchVal || (r.campaign_name || "").toLowerCase().includes(searchVal);
-        return okScope && okCamp && okSearch;
-      });
+      box.innerHTML = `
+        <div class="kpi-card">
+          <div class="kpi-label">LEADS ACUMULADOS (${comp.dias_comparados} DÍAS)</div>
+          <div class="kpi-val">${fmtInt(comp.leads_actual)}</div>
+          <div class="kpi-sub">Mes ant. (${comp.mes_anterior}): ${fmtInt(comp.leads_mes_pasado)} · <span class="${vl.cls}">${vl.text}</span></div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-label">GASTO ACUMULADO (${comp.dias_comparados} DÍAS)</div>
+          <div class="kpi-val">${fmtMoney(comp.gasto_actual)}</div>
+          <div class="kpi-sub">Mes ant. (${comp.mes_anterior}): ${fmtMoney(comp.gasto_mes_pasado)} · <span class="${vg.cls}">${vg.text}</span></div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-label">CPL PROMEDIO (${comp.dias_comparados} DÍAS)</div>
+          <div class="kpi-val">${fmtMoney(comp.cpl_actual)}</div>
+          <div class="kpi-sub">Mes ant. (${comp.mes_anterior}): ${fmtMoney(comp.cpl_mes_pasado)} · <span class="${vc.cls}">${vc.text}</span></div>
+        </div>
+      `;
     }
 
-    function aggregateByDay(rows, ym, metric) {
-      const byDay = Array(31).fill(0);
-      rows.forEach((r) => {
-        if (!r.date || !r.date.startsWith(ym)) return;
-        const day = parseInt(r.date.slice(8, 10), 10);
-        if (day >= 1 && day <= 31) {
-          byDay[day - 1] += Number(r[metric] || 0);
-        }
-      });
-      return byDay;
-    }
-
-    function drawLineChart(canvasId, currSeries, prevSeries, isCurrency) {
+    function drawLineChart(canvasId, currSeries, prevSeries, maxCurrDay, isCurrency) {
       const canvas = document.getElementById(canvasId);
       if (!canvas) return;
       const ctx = canvas.getContext("2d");
@@ -353,9 +391,10 @@
       const plotW = w - pad.left - pad.right;
       const plotH = h - pad.top - pad.bottom;
 
-      const maxVal = Math.max(1, ...currSeries, ...prevSeries);
+      const activeCurr = currSeries.slice(0, maxCurrDay);
+      const maxVal = Math.max(1, ...activeCurr, ...prevSeries);
 
-      ctx.strokeStyle = "#1e3754";
+      ctx.strokeStyle = "#2a2a2f";
       ctx.lineWidth = 1;
       for (let i = 0; i <= 4; i++) {
         const y = pad.top + (plotH * i) / 4;
@@ -365,13 +404,13 @@
         ctx.stroke();
 
         const val = maxVal * (1 - i / 4);
-        ctx.fillStyle = "#8ea5c0";
+        ctx.fillStyle = "#b0b0b8";
         ctx.font = "11px system-ui, sans-serif";
         ctx.textAlign = "right";
         ctx.fillText(isCurrency ? `$${Math.round(val)}` : `${Math.round(val)}`, pad.left - 8, y + 4);
       }
 
-      ctx.fillStyle = "#8ea5c0";
+      ctx.fillStyle = "#b0b0b8";
       ctx.font = "11px system-ui, sans-serif";
       ctx.textAlign = "center";
       for (let d = 1; d <= 31; d += 2) {
@@ -379,77 +418,89 @@
         ctx.fillText(String(d), x, h - 10);
       }
 
-      const drawSeries = (series, color, dashed) => {
+      const drawSeries = (series, limitCount, color, dashed) => {
         ctx.save();
         ctx.strokeStyle = color;
-        ctx.lineWidth = 2.2;
+        ctx.lineWidth = 2.4;
         if (dashed) ctx.setLineDash([5, 4]);
         ctx.beginPath();
-        series.forEach((val, idx) => {
+        for (let idx = 0; idx < limitCount; idx++) {
+          const val = series[idx];
           const x = pad.left + (idx / 30) * plotW;
           const y = pad.top + plotH - (val / maxVal) * plotH;
           if (idx === 0) ctx.moveTo(x, y);
           else ctx.lineTo(x, y);
-        });
+        }
         ctx.stroke();
         ctx.restore();
       };
 
-      drawSeries(prevSeries, "#94a3b8", true);
-      drawSeries(currSeries, "#38bdf8", false);
+      drawSeries(prevSeries, 31, "#9ca3af", true);
+      drawSeries(currSeries, maxCurrDay, "#f0531c", false);
     }
 
-    function renderTable(rows, currYm, prevYm) {
-      const tbody = document.getElementById("campaign-table-body");
-      if (!tbody) return;
+    function renderCharts(ym) {
+      const rows = (RAW.serie_diaria_leads || []).filter(
+        (r) => r.scope === currentScope && r.fecha && r.fecha.startsWith(ym)
+      );
+      const leadsCurr = Array(31).fill(0);
+      const leadsPrev = Array(31).fill(0);
+      const spendCurr = Array(31).fill(0);
+      const spendPrev = Array(31).fill(0);
 
-      const map = new Map();
+      const hastaFecha = RAW.metadata?.until || "";
+      let maxCurrDay = 31;
+      if (hastaFecha && hastaFecha.startsWith(ym)) {
+        maxCurrDay = Math.max(1, parseInt(hastaFecha.slice(8, 10), 10));
+      }
+
       rows.forEach((r) => {
-        const key = `${r.marca}|||${r.campaign_name}`;
-        if (!map.has(key)) {
-          map.set(key, {
-            marca: r.marca,
-            campaign_name: r.campaign_name,
-            status: r.status || "",
-            daily_budget: Number(r.daily_budget || 0),
-            currSpend: 0,
-            prevSpend: 0,
-            currLeads: 0,
-            prevLeads: 0,
-          });
-        }
-        const entry = map.get(key);
-        if (r.date && r.date.startsWith(currYm)) {
-          entry.currSpend += Number(r.spend || 0);
-          entry.currLeads += Number(r.leads || 0);
-          if (Number(r.daily_budget || 0) > 0) entry.daily_budget = Number(r.daily_budget);
-        } else if (prevYm && r.date && r.date.startsWith(prevYm)) {
-          entry.prevSpend += Number(r.spend || 0);
-          entry.prevLeads += Number(r.leads || 0);
+        const day = parseInt(r.fecha.slice(8, 10), 10);
+        if (day >= 1 && day <= 31) {
+          leadsCurr[day - 1] = Number(r.leads || 0);
+          leadsPrev[day - 1] = Number(r.leads_mes_pasado || 0);
+          spendCurr[day - 1] = Number(r.spend || 0);
+          spendPrev[day - 1] = Number(r.spend_mes_pasado || 0);
         }
       });
 
-      const list = Array.from(map.values()).sort((a, b) => b.currSpend - a.currSpend);
+      drawLineChart("leads-chart", leadsCurr, leadsPrev, maxCurrDay, false);
+      drawLineChart("spend-chart", spendCurr, spendPrev, maxCurrDay, true);
+    }
+
+    function renderTable(ym) {
+      const tbody = document.getElementById("campaign-table-body");
+      if (!tbody) return;
+      const campVal = document.getElementById("campaign-filter")?.value || "ALL";
+      const searchVal = (document.getElementById("search-input")?.value || "").trim().toLowerCase();
+
+      const list = (RAW.campanas_por_mes?.[ym] || []).filter((c) => {
+        const okScope = currentScope === "Juntos" || c.brand === currentScope;
+        const okCamp = campVal === "ALL" || c.campaign_name === campVal;
+        const okSearch = !searchVal || (c.campaign_name || "").toLowerCase().includes(searchVal);
+        return okScope && okCamp && okSearch;
+      });
+
       if (!list.length) {
         tbody.innerHTML = '<tr><td colspan="9" class="empty-msg">Sin registros para los filtros seleccionados.</td></tr>';
         return;
       }
 
       tbody.innerHTML = list
-        .map((item) => {
-          const vSpend = formatVar(item.currSpend, item.prevSpend, true, true);
-          const vLeads = formatVar(item.currLeads, item.prevLeads, false, false);
-          const cpl = item.currLeads > 0 ? fmtMoney(item.currSpend / item.currLeads) : "-";
+        .map((c) => {
+          const vg = formatVarObj(c.var_gasto, true, true);
+          const vl = formatVarObj(c.var_leads, false, false);
+          const cpl = c.leads_actual > 0 ? fmtMoney(c.cpl_actual) : "-";
           return `
             <tr>
-              <td>${item.marca}</td>
-              <td>${item.campaign_name}</td>
-              <td>${item.status}</td>
-              <td class="num">${fmtMoney(item.daily_budget)}</td>
-              <td class="num">${fmtMoney(item.currSpend)}</td>
-              <td class="num ${vSpend.cls}">${vSpend.text}</td>
-              <td class="num">${fmtNum(item.currLeads)}</td>
-              <td class="num ${vLeads.cls}">${vLeads.text}</td>
+              <td>${fmtLugar(c.brand)}</td>
+              <td>${c.campaign_name}</td>
+              <td>${c.status}</td>
+              <td class="num">${fmtMoney(c.daily_budget)}</td>
+              <td class="num">${fmtMoney(c.gasto_actual)}</td>
+              <td class="num ${vg.cls}">${vg.text}</td>
+              <td class="num">${fmtInt(c.leads_actual)}</td>
+              <td class="num ${vl.cls}">${vl.text}</td>
               <td class="num">${cpl}</td>
             </tr>
           `;
@@ -458,27 +509,14 @@
     }
 
     function renderAll() {
-      const currYm = document.getElementById("month-filter")?.value || "";
-      const prevYm = currYm ? getPrevMonthKey(currYm) : "";
-      const rows = getFilteredRows();
-
-      drawLineChart(
-        "leads-chart",
-        aggregateByDay(rows, currYm, "leads"),
-        prevYm ? aggregateByDay(rows, prevYm, "leads") : Array(31).fill(0),
-        false
-      );
-      drawLineChart(
-        "spend-chart",
-        aggregateByDay(rows, currYm, "spend"),
-        prevYm ? aggregateByDay(rows, prevYm, "spend") : Array(31).fill(0),
-        true
-      );
-      renderTable(rows, currYm, prevYm);
+      const ym = document.getElementById("month-filter")?.value || "";
+      renderKpis(ym);
+      renderCharts(ym);
+      renderTable(ym);
     }
 
     async function init() {
-      const res = await fetch("./tablero_leads_urgentito.json");
+      const res = await fetch("./tablero_leads_urgentito.json?t=" + Date.now());
       RAW = await res.json();
 
       const metaEl = document.getElementById("meta-info");
@@ -490,16 +528,17 @@
       populateCampaignFilter();
 
       document.querySelectorAll(".scope-btn").forEach((btn) => {
-        btn.addEventListener("click", () => {
-          document.querySelectorAll(".scope-btn").forEach((b) => b.classList.remove("active"));
-          btn.classList.add("active");
-          currentScope = btn.dataset.scope;
-          populateCampaignFilter();
-          renderAll();
-        });
+        btn.addEventListener("click", () => setScope(btn.dataset.scope));
       });
 
-      document.getElementById("month-filter")?.addEventListener("change", renderAll);
+      document.getElementById("location-select")?.addEventListener("change", (e) => {
+        setScope(e.target.value);
+      });
+
+      document.getElementById("month-filter")?.addEventListener("change", () => {
+        populateCampaignFilter();
+        renderAll();
+      });
       document.getElementById("campaign-filter")?.addEventListener("change", renderAll);
       document.getElementById("search-input")?.addEventListener("input", renderAll);
 
