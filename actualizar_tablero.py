@@ -114,11 +114,7 @@ def process_account(marca: str, account_id_env: str, token_env: str, since_str: 
 
 def main():
     hoy_quito = dt.datetime.now(dt.timezone(dt.timedelta(hours=-5))).date()
-    primer_dia_mes_actual = hoy_quito.replace(day=1)
-    ultimo_dia_mes_anterior = primer_dia_mes_actual - dt.timedelta(days=1)
-    primer_dia_mes_anterior = ultimo_dia_mes_anterior.replace(day=1)
-
-    since_str = primer_dia_mes_anterior.strftime("%Y-%m-%d")
+    since_str = "2026-08-01"
     until_str = hoy_quito.strftime("%Y-%m-%d")
 
     all_rows = []
