@@ -21,13 +21,27 @@ ACCOUNTS = [
     },
 ]
 
+LEAD_TYPES = (
+    "onsite_conversion.lead_grouped",
+    "lead",
+    "onsite_conversion.lead",
+)
+
+MSG_TYPES = (
+    "onsite_conversion.messaging_conversation_started_7d",
+    "onsite_conversion.messaging_conversation_started",
+    "onsite_conversion.total_messaging_connection",
+    "messaging_conversation_started_7d",
+    "messaging_conversation_started",
+)
+
 
 def clean_id(raw: str) -> str:
     val = (raw or "").strip()
     return val[4:] if val.startswith("act_") else val
 
 
-def extract_leads(actions) -> int:
+def extract_leads(actions, campaign_name: str = "") -> int:
     if not isinstance(actions, list):
         return 0
 
@@ -42,22 +56,23 @@ def extract_leads(actions) -> int:
             val = 0.0
         by_type[atype] = max(by_type.get(atype, 0.0), val)
 
-    # 1) Prioridad estricta para leads de formulario / conversión de lead
-    for preferred_type in (
-        "onsite_conversion.lead_grouped",
-        "lead",
-        "onsite_conversion.lead",
-    ):
-        if preferred_type in by_type:
-            return int(round(by_type[preferred_type]))
+    # Si el nombre de la campaña indica SMS / mensajes o no tiene leads de formulario,
+    # revisamos primero las métricas de conversación que reporta Meta en "Resultados"
+    name_upper = (campaign_name or "").upper()
+    is_msg_campaign = "[SMS]" in name_upper or "MENSAJE" in name_upper or "WHATSAPP" in name_upper
 
-    # 2) Si la campaña es de mensajes (como [SMS][VENTAS]...) y no tiene leads, toma conversaciones iniciadas
-    for msg_type in (
-        "onsite_conversion.messaging_conversation_started_7d",
-        "onsite_conversion.messaging_conversation_started",
-    ):
-        if msg_type in by_type:
-            return int(round(by_type[msg_type]))
+    if is_msg_campaign:
+        for mtype in MSG_TYPES:
+            if mtype in by_type and by_type[mtype] > 0:
+                return int(round(by_type[mtype]))
+
+    for ltype in LEAD_TYPES:
+        if ltype in by_type and by_type[ltype] > 0:
+            return int(round(by_type[ltype]))
+
+    for mtype in MSG_TYPES:
+        if mtype in by_type and by_type[mtype] > 0:
+            return int(round(by_type[mtype]))
 
     return 0
 
@@ -160,6 +175,7 @@ def main():
             accounts_ok.append({"brand": brand, "account_id": acc_id})
             for row in insights:
                 cid = row.get("campaign_id", "")
+                cname = row.get("campaign_name", "Sin nombre")
                 b = budgets.get(cid, {})
                 raw_records.append(
                     {
@@ -168,11 +184,11 @@ def main():
                         "day": int((row.get("date_start", "0000-00-01"))[8:10]),
                         "brand": brand,
                         "campaign_id": cid,
-                        "campaign_name": row.get("campaign_name", "Sin nombre"),
+                        "campaign_name": cname,
                         "status": b.get("status", "ACTIVE"),
                         "daily_budget": b.get("daily_budget", 0.0),
                         "spend": round(float(row.get("spend", 0) or 0), 2),
-                        "leads": extract_leads(row.get("actions")),
+                        "leads": extract_leads(row.get("actions"), cname),
                         "impressions": int(row.get("impressions", 0) or 0),
                         "clicks": int(row.get("clicks", 0) or 0),
                     }
