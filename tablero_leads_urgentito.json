@@ -19,12 +19,12 @@
       {
         "brand": "Urgentito Talleres",
         "account_id": "1394825968565785",
-        "error": "Error /insights act_1394825968565785 (400): {\"error\":{\"message\":\"Error validating access token: Session has expired on Thursday, 26-Nov-26 11:00:00 PST. The current time is Thursday, 26-Nov-26 11:16:48 PST.\",\"type\":\"OAuthException\",\"code\":190,\"error_subcode\":463,\"fbtrace_id\":\"AlrQd9bkvTFm1SxMo3jbIqZ\"}}"
+        "error": "Error /insights act_1394825968565785 (400): {\"error\":{\"message\":\"Error validating access token: Session has expired on Thursday, 26-Nov-26 11:00:00 PST. The current time is Thursday, 26-Nov-26 11:30:16 PST.\",\"type\":\"OAuthException\",\"code\":190,\"error_subcode\":463,\"fbtrace_id\":\"ATpp_70xvc_kicn-0euQnAm\"}}"
       },
       {
         "brand": "Urgentito Ambato",
         "account_id": "428965856955069",
-        "error": "Error /insights act_428965856955069 (400): {\"error\":{\"message\":\"Error validating access token: Session has expired on Thursday, 26-Nov-26 11:00:00 PST. The current time is Thursday, 26-Nov-26 11:16:48 PST.\",\"type\":\"OAuthException\",\"code\":190,\"error_subcode\":463,\"fbtrace_id\":\"AytsTqXsgrxg9YcVzQCyZRG\"}}"
+        "error": "Error /insights act_428965856955069 (400): {\"error\":{\"message\":\"Error validating access token: Session has expired on Thursday, 26-Nov-26 11:00:00 PST. The current time is Thursday, 26-Nov-26 11:30:16 PST.\",\"type\":\"OAuthException\",\"code\":190,\"error_subcode\":463,\"fbtrace_id\":\"AZY-e2mXQmwlqkbt0tnFAGA\"}}"
       }
     ]
   },
