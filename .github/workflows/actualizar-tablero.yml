@@ -1,0 +1,50 @@
+name: Actualizar datos del tablero Urgentito
+
+on:
+  schedule:
+    # 07:30, 09:40, 13:15 y 18:15 hora de Quito (UTC-5)
+    - cron: "30 12 * * *"
+    - cron: "40 14 * * *"
+    - cron: "15 18 * * *"
+    - cron: "15 23 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update-json:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Descargar repositorio
+        uses: actions/checkout@v4
+
+      - name: Configurar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Instalar dependencias
+        run: |
+          pip install requests pandas
+
+      - name: Ejecutar extracción y generar JSON
+        env:
+          URGENTITO_TALLERES_ACCESS_TOKEN: ${{ secrets.URGENTITO_TALLERES_ACCESS_TOKEN }}
+          URGENTITO_TALLERES_ACCOUNT_ID: ${{ secrets.URGENTITO_TALLERES_ACCOUNT_ID }}
+          URGENTITO_AMBATO_ACCESS_TOKEN: ${{ secrets.URGENTITO_AMBATO_ACCESS_TOKEN }}
+          URGENTITO_AMBATO_ACCOUNT_ID: ${{ secrets.URGENTITO_AMBATO_ACCOUNT_ID }}
+        run: |
+          python actualizar_tablero.py
+
+      - name: Guardar cambios en el repositorio si hubo actualización
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add tablero_leads_urgentito.json
+          if ! git diff --staged --quiet; then
+            git commit -m "chore: actualizar tablero_leads_urgentito.json"
+            git push
+          else
+            echo "Sin cambios nuevos en el JSON."
+          fi
