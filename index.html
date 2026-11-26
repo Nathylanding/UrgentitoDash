@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Comparativa Diaria de Leads y Presupuesto &mdash; Urgentito Talleres &amp; Ambato</title>
+  <style>
+    :root {
+      --bg: #07111e;
+      --card: #0d1c2e;
+      --card-2: #12253c;
+      --border: #1e3754;
+      --text: #eef4fb;
+      --muted: #8ea5c0;
+      --accent: #38bdf8;
+      --accent-2: #f97316;
+      --good: #22c55e;
+      --bad: #ef4444;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      padding: 20px;
+    }
+    .container { max-width: 1380px; margin: 0 auto; }
+    header {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+    h1 {
+      margin: 0;
+      font-size: 1.45rem;
+      font-weight: 700;
+    }
+    #meta-info {
+      color: var(--muted);
+      font-size: 0.88rem;
+    }
+    .toolbar {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 12px 14px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 18px;
+    }
+    .scope-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      background: var(--bg);
+      padding: 4px;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+    }
+    .scope-btn {
+      background: transparent;
+      color: var(--muted);
+      border: 0;
+      padding: 8px 14px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+    .scope-btn.active {
+      background: var(--accent);
+      color: #04101c;
+    }
+    .filters {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+    }
+    .filter-box {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 6px 10px;
+      font-size: 0.85rem;
+    }
+    .filter-box label { color: var(--muted); font-weight: 600; }
+    select, input[type="search"] {
+      background: transparent;
+      color: var(--text);
+      border: 0;
+      outline: none;
+      font-size: 0.9rem;
+    }
+    select option { background: var(--card); color: var(--text); }
+    input[type="search"] { min-width: 180px; }
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+      margin-bottom: 18px;
+    }
+    @media (max-width: 960px) {
+      .grid-2 { grid-template-columns: 1fr; }
+    }
+    .panel {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 16px;
+    }
+    .panel-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+    .panel-title {
+      margin: 0;
+      font-size: 1rem;
+      font-weight: 700;
+    }
+    .panel-sub {
+      color: var(--muted);
+      font-size: 0.82rem;
+    }
+    canvas {
+      width: 100%;
+      height: 290px;
+      display: block;
+    }
+    .table-wrap {
+      overflow-x: auto;
+      margin-top: 10px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.88rem;
+    }
+    th, td {
+      padding: 10px 12px;
+      border-bottom: 1px solid var(--border);
+      text-align: left;
+      white-space: nowrap;
+    }
+    th { color: var(--muted); font-weight: 600; background: var(--card-2); }
+    .num { text-align: right; font-variant-numeric: tabular-nums; }
+    .pos { color: var(--good); }
+    .neg { color: var(--bad); }
+    .empty-msg {
+      color: var(--muted);
+      text-align: center;
+      padding: 20px;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Comparativa Diaria de Leads y Presupuesto &mdash; Urgentito Talleres &amp; Ambato</h1>
+      <div id="meta-info">Cargando datos...</div>
+    </header>
+
+    <div class="toolbar">
+      <div class="scope-group" id="scope-buttons" role="group" aria-label="Filtro de cuentas">
+        <button type="button" class="scope-btn active" data-scope="Juntos">Juntos (Talleres + Ambato)</button>
+        <button type="button" class="scope-btn" data-scope="Urgentito Talleres">Solo Urgentito Talleres</button>
+        <button type="button" class="scope-btn" data-scope="Urgentito Ambato">Solo Urgentito Ambato</button>
+      </div>
+
+      <div class="filters">
+        <div class="filter-box">
+          <label for="month-filter">MES</label>
+          <select id="month-filter"></select>
+        </div>
+        <div class="filter-box">
+          <label for="campaign-filter">CAMPAÑA</label>
+          <select id="campaign-filter"></select>
+        </div>
+        <div class="filter-box">
+          <input type="search" id="search-input" placeholder="Buscar campaña..." />
+        </div>
+      </div>
+    </div>
+
+    <div class="grid-2">
+      <section class="panel">
+        <div class="panel-head">
+          <h2 class="panel-title">Comparativa Diaria de Leads &mdash; Día del Mes (1 al 31)</h2>
+          <span class="panel-sub">Mes seleccionado vs Mes pasado</span>
+        </div>
+        <canvas id="leads-chart" width="640" height="290"></canvas>
+      </section>
+
+      <section class="panel">
+        <div class="panel-head">
+          <h2 class="panel-title">Comparativa Diaria de Gasto ($) &mdash; Día del Mes (1 al 31)</h2>
+          <span class="panel-sub">Mes seleccionado vs Mes pasado</span>
+        </div>
+        <canvas id="spend-chart" width="640" height="290"></canvas>
+      </section>
+    </div>
+
+    <section class="panel">
+      <div class="panel-head">
+        <h2 class="panel-title">Desglose por Campaña: Presupuesto, Gasto al Día y Leads vs Mes Pasado</h2>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Marca</th>
+              <th>Campaña</th>
+              <th>Estado</th>
+              <th class="num">Presup. Config.</th>
+              <th class="num">Gasto al Día</th>
+              <th class="num">Var. Gasto vs Mes Ant.</th>
+              <th class="num">Leads al Día</th>
+              <th class="num">Var. Leads vs Mes Ant.</th>
+              <th class="num">CPL al Día</th>
+            </tr>
+          </thead>
+          <tbody id="campaign-table-body"></tbody>
+        </table>
+      </div>
+    </section>
+  </div>
+
+  <script>
+    let RAW = { metadata: {}, registros: [] };
+    let currentScope = "Juntos";
+
+    const fmtMoney = (v) =>
+      "$" + Number(v || 0).toLocaleString("es-EC", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+
+    const fmtNum = (v) =>
+      Number(v || 0).toLocaleString("es-EC", { minimumFractionDigits: 0, maximumFractionDigits: 1 });
+
+    function getPrevMonthKey(ym) {
+      const [yStr, mStr] = ym.split("-");
+      let y = parseInt(yStr, 10);
+      let m = parseInt(mStr, 10) - 1;
+      if (m < 1) {
+        m = 12;
+        y -= 1;
+      }
+      return `${y}-${String(m).padStart(2, "0")}`;
+    }
+
+    function formatVar(curr, prev, invertGood = false, isCurrency = false) {
+      const diff = curr - prev;
+      const pct = prev > 0 ? ((diff / prev) * 100) : null;
+      const absStr = isCurrency ? fmtMoney(Math.abs(diff)) : fmtNum(Math.abs(diff));
+      const sign = diff > 0 ? "+" : diff < 0 ? "-" : "";
+      const pctStr = pct === null ? "" : ` (${sign}${Math.abs(pct).toFixed(1)}%)`;
+      let cls = "";
+      if (diff > 0) cls = invertGood ? "neg" : "pos";
+      if (diff < 0) cls = invertGood ? "pos" : "neg";
+      return { text: `${sign}${absStr}${pctStr}`, cls };
+    }
+
+    function populateMonthFilter() {
+      const sel = document.getElementById("month-filter");
+      if (!sel) return;
+      const months = Array.from(
+        new Set((RAW.registros || []).map((r) => (r.date || "").slice(0, 7)).filter(Boolean))
+      ).sort().reverse();
+
+      sel.innerHTML = "";
+      if (!months.length) {
+        const opt = document.createElement("option");
+        opt.value = "";
+        opt.textContent = "Sin meses";
+        sel.appendChild(opt);
+        return;
+      }
+      months.forEach((m) => {
+        const opt = document.createElement("option");
+        opt.value = m;
+        opt.textContent = m;
+        sel.appendChild(opt);
+      });
+    }
+
+    function populateCampaignFilter() {
+      const sel = document.getElementById("campaign-filter");
+      if (!sel) return;
+      const prevVal = sel.value;
+      const names = Array.from(
+        new Set(
+          (RAW.registros || [])
+            .filter((r) => currentScope === "Juntos" || r.marca === currentScope)
+            .map((r) => r.campaign_name)
+            .filter(Boolean)
+        )
+      ).sort();
+
+      sel.innerHTML = '<option value="ALL">Todas las campañas</option>';
+      names.forEach((name) => {
+        const opt = document.createElement("option");
+        opt.value = name;
+        opt.textContent = name;
+        sel.appendChild(opt);
+      });
+      if (names.includes(prevVal)) sel.value = prevVal;
+    }
+
+    function getFilteredRows() {
+      const campVal = document.getElementById("campaign-filter")?.value || "ALL";
+      const searchVal = (document.getElementById("search-input")?.value || "").trim().toLowerCase();
+
+      return (RAW.registros || []).filter((r) => {
+        const okScope = currentScope === "Juntos" || r.marca === currentScope;
+        const okCamp = campVal === "ALL" || r.campaign_name === campVal;
+        const okSearch = !searchVal || (r.campaign_name || "").toLowerCase().includes(searchVal);
+        return okScope && okCamp && okSearch;
+      });
+    }
+
+    function aggregateByDay(rows, ym, metric) {
+      const byDay = Array(31).fill(0);
+      rows.forEach((r) => {
+        if (!r.date || !r.date.startsWith(ym)) return;
+        const day = parseInt(r.date.slice(8, 10), 10);
+        if (day >= 1 && day <= 31) {
+          byDay[day - 1] += Number(r[metric] || 0);
+        }
+      });
+      return byDay;
+    }
+
+    function drawLineChart(canvasId, currSeries, prevSeries, isCurrency) {
+      const canvas = document.getElementById(canvasId);
+      if (!canvas) return;
+      const ctx = canvas.getContext("2d");
+      const w = canvas.width;
+      const h = canvas.height;
+      ctx.clearRect(0, 0, w, h);
+
+      const pad = { top: 18, right: 16, bottom: 32, left: 56 };
+      const plotW = w - pad.left - pad.right;
+      const plotH = h - pad.top - pad.bottom;
+
+      const maxVal = Math.max(1, ...currSeries, ...prevSeries);
+
+      ctx.strokeStyle = "#1e3754";
+      ctx.lineWidth = 1;
+      for (let i = 0; i <= 4; i++) {
+        const y = pad.top + (plotH * i) / 4;
+        ctx.beginPath();
+        ctx.moveTo(pad.left, y);
+        ctx.lineTo(w - pad.right, y);
+        ctx.stroke();
+
+        const val = maxVal * (1 - i / 4);
+        ctx.fillStyle = "#8ea5c0";
+        ctx.font = "11px system-ui, sans-serif";
+        ctx.textAlign = "right";
+        ctx.fillText(isCurrency ? `$${Math.round(val)}` : `${Math.round(val)}`, pad.left - 8, y + 4);
+      }
+
+      ctx.fillStyle = "#8ea5c0";
+      ctx.font = "11px system-ui, sans-serif";
+      ctx.textAlign = "center";
+      for (let d = 1; d <= 31; d += 2) {
+        const x = pad.left + ((d - 1) / 30) * plotW;
+        ctx.fillText(String(d), x, h - 10);
+      }
+
+      const drawSeries = (series, color, dashed) => {
+        ctx.save();
+        ctx.strokeStyle = color;
+        ctx.lineWidth = 2.2;
+        if (dashed) ctx.setLineDash([5, 4]);
+        ctx.beginPath();
+        series.forEach((val, idx) => {
+          const x = pad.left + (idx / 30) * plotW;
+          const y = pad.top + plotH - (val / maxVal) * plotH;
+          if (idx === 0) ctx.moveTo(x, y);
+          else ctx.lineTo(x, y);
+        });
+        ctx.stroke();
+        ctx.restore();
+      };
+
+      drawSeries(prevSeries, "#94a3b8", true);
+      drawSeries(currSeries, "#38bdf8", false);
+    }
+
+    function renderTable(rows, currYm, prevYm) {
+      const tbody = document.getElementById("campaign-table-body");
+      if (!tbody) return;
+
+      const map = new Map();
+      rows.forEach((r) => {
+        const key = `${r.marca}|||${r.campaign_name}`;
+        if (!map.has(key)) {
+          map.set(key, {
+            marca: r.marca,
+            campaign_name: r.campaign_name,
+            status: r.status || "",
+            daily_budget: Number(r.daily_budget || 0),
+            currSpend: 0,
+            prevSpend: 0,
+            currLeads: 0,
+            prevLeads: 0,
+          });
+        }
+        const entry = map.get(key);
+        if (r.date && r.date.startsWith(currYm)) {
+          entry.currSpend += Number(r.spend || 0);
+          entry.currLeads += Number(r.leads || 0);
+          if (Number(r.daily_budget || 0) > 0) entry.daily_budget = Number(r.daily_budget);
+        } else if (prevYm && r.date && r.date.startsWith(prevYm)) {
+          entry.prevSpend += Number(r.spend || 0);
+          entry.prevLeads += Number(r.leads || 0);
+        }
+      });
+
+      const list = Array.from(map.values()).sort((a, b) => b.currSpend - a.currSpend);
+      if (!list.length) {
+        tbody.innerHTML = '<tr><td colspan="9" class="empty-msg">Sin registros para los filtros seleccionados.</td></tr>';
+        return;
+      }
+
+      tbody.innerHTML = list
+        .map((item) => {
+          const vSpend = formatVar(item.currSpend, item.prevSpend, true, true);
+          const vLeads = formatVar(item.currLeads, item.prevLeads, false, false);
+          const cpl = item.currLeads > 0 ? fmtMoney(item.currSpend / item.currLeads) : "-";
+          return `
+            <tr>
+              <td>${item.marca}</td>
+              <td>${item.campaign_name}</td>
+              <td>${item.status}</td>
+              <td class="num">${fmtMoney(item.daily_budget)}</td>
+              <td class="num">${fmtMoney(item.currSpend)}</td>
+              <td class="num ${vSpend.cls}">${vSpend.text}</td>
+              <td class="num">${fmtNum(item.currLeads)}</td>
+              <td class="num ${vLeads.cls}">${vLeads.text}</td>
+              <td class="num">${cpl}</td>
+            </tr>
+          `;
+        })
+        .join("");
+    }
+
+    function renderAll() {
+      const currYm = document.getElementById("month-filter")?.value || "";
+      const prevYm = currYm ? getPrevMonthKey(currYm) : "";
+      const rows = getFilteredRows();
+
+      drawLineChart(
+        "leads-chart",
+        aggregateByDay(rows, currYm, "leads"),
+        prevYm ? aggregateByDay(rows, prevYm, "leads") : Array(31).fill(0),
+        false
+      );
+      drawLineChart(
+        "spend-chart",
+        aggregateByDay(rows, currYm, "spend"),
+        prevYm ? aggregateByDay(rows, prevYm, "spend") : Array(31).fill(0),
+        true
+      );
+      renderTable(rows, currYm, prevYm);
+    }
+
+    async function init() {
+      const res = await fetch("./tablero_leads_urgentito.json");
+      RAW = await res.json();
+
+      const metaEl = document.getElementById("meta-info");
+      if (metaEl && RAW && RAW.metadata) {
+        metaEl.textContent = `Corte al: ${RAW.metadata.fecha_referencia} · Histórico disponible: ${RAW.metadata.since} a ${RAW.metadata.until}`;
+      }
+
+      populateMonthFilter();
+      populateCampaignFilter();
+
+      document.querySelectorAll(".scope-btn").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          document.querySelectorAll(".scope-btn").forEach((b) => b.classList.remove("active"));
+          btn.classList.add("active");
+          currentScope = btn.dataset.scope;
+          populateCampaignFilter();
+          renderAll();
+        });
+      });
+
+      document.getElementById("month-filter")?.addEventListener("change", renderAll);
+      document.getElementById("campaign-filter")?.addEventListener("change", renderAll);
+      document.getElementById("search-input")?.addEventListener("input", renderAll);
+
+      renderAll();
+    }
+
+    init();
+  </script>
+</body>
+</html>
