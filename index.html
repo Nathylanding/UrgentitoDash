@@ -13,7 +13,7 @@
       --text: #ffffff;
       --muted: #b0b0b8;
       --urgentito: #f0531c;
-      --urgentito-soft: rgba(240, 83, 28, 0.16);
+      --urgentito-soft: rgba(240, 83, 28, 0.22);
       --good: #22c55e;
       --bad: #ef4444;
     }
@@ -108,7 +108,7 @@
       font-size: 0.9rem;
     }
     select option { background: var(--card); color: var(--text); }
-    input[type="search"] { min-width: 180px; }
+    input[type="search"] { min-width: 170px; }
     .kpi-grid {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -138,27 +138,107 @@
       border: 1px solid var(--border);
       border-radius: 12px;
       padding: 16px;
+      position: relative;
     }
     .panel-head {
       display: flex;
       justify-content: space-between;
       align-items: baseline;
       gap: 8px;
-      margin-bottom: 12px;
+      margin-bottom: 10px;
     }
     .panel-title { margin: 0; font-size: 1rem; font-weight: 700; color: var(--text); }
     .panel-sub { color: var(--muted); font-size: 0.82rem; }
     .legend-row {
       display: flex;
+      flex-wrap: wrap;
       gap: 16px;
-      font-size: 0.8rem;
+      font-size: 0.82rem;
       color: var(--muted);
       margin-bottom: 8px;
     }
-    .legend-item { display: inline-flex; align-items: center; gap: 6px; }
-    .dot-curr { width: 14px; height: 3px; background: var(--urgentito); display: inline-block; }
-    .dot-prev { width: 14px; height: 2px; border-top: 2px dashed #9ca3af; display: inline-block; }
-    canvas { width: 100%; height: 290px; display: block; }
+    .legend-item { display: inline-flex; align-items: center; gap: 7px; }
+    .swatch-curr {
+      width: 16px;
+      height: 10px;
+      border-radius: 2px;
+      background: var(--urgentito);
+      display: inline-block;
+    }
+    .swatch-prev {
+      width: 16px;
+      height: 10px;
+      border-radius: 2px;
+      background: rgba(255, 160, 122, 0.45);
+      border: 1px dashed #d1d5db;
+      display: inline-block;
+    }
+    .chart-wrap {
+      position: relative;
+      width: 100%;
+    }
+    canvas {
+      width: 100%;
+      height: 300px;
+      display: block;
+      cursor: crosshair;
+    }
+    .hover-tooltip {
+      position: fixed;
+      z-index: 50;
+      pointer-events: none;
+      display: none;
+      min-width: 215px;
+      background: rgba(15, 16, 20, 0.96);
+      border: 1px solid #3f3f46;
+      border-radius: 10px;
+      padding: 10px 12px;
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.65);
+      font-size: 0.84rem;
+      line-height: 1.45;
+    }
+    .tt-day {
+      font-weight: 800;
+      font-size: 0.95rem;
+      color: #ffffff;
+      margin-bottom: 6px;
+    }
+    .tt-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin: 3px 0;
+    }
+    .tt-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      color: #e4e4e7;
+    }
+    .tt-box-curr {
+      width: 11px;
+      height: 11px;
+      border-radius: 2px;
+      background: var(--urgentito);
+      display: inline-block;
+    }
+    .tt-box-prev {
+      width: 11px;
+      height: 11px;
+      border-radius: 2px;
+      background: rgba(255, 160, 122, 0.5);
+      border: 1px dashed #d1d5db;
+      display: inline-block;
+    }
+    .tt-val { font-weight: 700; color: #ffffff; }
+    .tt-diff {
+      margin-top: 6px;
+      padding-top: 6px;
+      border-top: 1px solid #27272a;
+      font-size: 0.78rem;
+      color: var(--muted);
+    }
     .table-wrap { overflow-x: auto; margin-top: 10px; }
     table { width: 100%; border-collapse: collapse; font-size: 0.88rem; }
     th, td {
@@ -210,6 +290,23 @@
           <select id="month-filter"></select>
         </div>
         <div class="filter-box">
+          <label for="week-filter">SEMANA</label>
+          <select id="week-filter">
+            <option value="ALL">Todas las semanas</option>
+            <option value="W1">Semana 1 (Días 1–7)</option>
+            <option value="W2">Semana 2 (Días 8–14)</option>
+            <option value="W3">Semana 3 (Días 15–21)</option>
+            <option value="W4">Semana 4 (Días 22–28)</option>
+            <option value="W5">Semana 5 (Días 29–31)</option>
+          </select>
+        </div>
+        <div class="filter-box">
+          <label for="day-filter">DÍA</label>
+          <select id="day-filter">
+            <option value="ALL">Todos los días</option>
+          </select>
+        </div>
+        <div class="filter-box">
           <label for="campaign-filter">CAMPAÑA</label>
           <select id="campaign-filter"></select>
         </div>
@@ -225,25 +322,29 @@
       <section class="panel">
         <div class="panel-head">
           <h2 class="panel-title">Comparativa Diaria de Leads &mdash; Día del Mes (1 al 31)</h2>
-          <span class="panel-sub">Mes seleccionado vs Mes pasado</span>
+          <span class="panel-sub" id="leads-sub">Mes seleccionado vs Mes pasado</span>
         </div>
         <div class="legend-row">
-          <span class="legend-item"><span class="dot-curr"></span> Mes seleccionado</span>
-          <span class="legend-item"><span class="dot-prev"></span> Mes pasado</span>
+          <span class="legend-item"><span class="swatch-curr"></span> <span id="legend-curr-leads">Mes seleccionado (Actual)</span></span>
+          <span class="legend-item"><span class="swatch-prev"></span> <span id="legend-prev-leads">Mes pasado</span></span>
         </div>
-        <canvas id="leads-chart" width="640" height="290"></canvas>
+        <div class="chart-wrap">
+          <canvas id="leads-chart" width="640" height="300"></canvas>
+        </div>
       </section>
 
       <section class="panel">
         <div class="panel-head">
           <h2 class="panel-title">Comparativa Diaria de Gasto ($) &mdash; Día del Mes (1 al 31)</h2>
-          <span class="panel-sub">Mes seleccionado vs Mes pasado</span>
+          <span class="panel-sub" id="spend-sub">Mes seleccionado vs Mes pasado</span>
         </div>
         <div class="legend-row">
-          <span class="legend-item"><span class="dot-curr"></span> Mes seleccionado</span>
-          <span class="legend-item"><span class="dot-prev"></span> Mes pasado</span>
+          <span class="legend-item"><span class="swatch-curr"></span> <span id="legend-curr-spend">Mes seleccionado (Actual)</span></span>
+          <span class="legend-item"><span class="swatch-prev"></span> <span id="legend-prev-spend">Mes pasado</span></span>
         </div>
-        <canvas id="spend-chart" width="640" height="290"></canvas>
+        <div class="chart-wrap">
+          <canvas id="spend-chart" width="640" height="300"></canvas>
+        </div>
       </section>
     </div>
 
@@ -272,9 +373,12 @@
     </section>
   </div>
 
+  <div class="hover-tooltip" id="hover-tooltip"></div>
+
   <script>
     let RAW = {};
     let currentScope = "Juntos";
+    const chartStates = {};
 
     const fmtMoney = (v) =>
       "$" + Number(v || 0).toLocaleString("es-EC", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
@@ -288,6 +392,19 @@
       return brand || "Todos los lugares";
     };
 
+    function prevMonthKey(ym) {
+      if (!ym || !ym.includes("-")) return "";
+      const [y, m] = ym.split("-").map(Number);
+      if (m === 1) return `${y - 1}-12`;
+      return `${y}-${String(m - 1).padStart(2, "0")}`;
+    }
+
+    function computeVar(curr, prev, decimals = 2) {
+      const diff = Number((curr - prev).toFixed(decimals));
+      const pct = prev > 0 ? Number((((curr - prev) / prev) * 100).toFixed(1)) : null;
+      return { abs: diff, pct };
+    }
+
     function formatVarObj(varObj, invertGood = false, isCurrency = false) {
       if (!varObj || varObj.abs === null || varObj.abs === undefined) return { text: "-", cls: "" };
       const absVal = Number(varObj.abs);
@@ -298,6 +415,79 @@
       if (absVal > 0) cls = invertGood ? "neg" : "pos";
       if (absVal < 0) cls = invertGood ? "pos" : "neg";
       return { text: `${sign}${absTxt}${pctTxt}`, cls };
+    }
+
+    function getAllowedDays(ym) {
+      const week = document.getElementById("week-filter")?.value || "ALL";
+      const daySel = document.getElementById("day-filter")?.value || "ALL";
+      const hastaFecha = RAW.metadata?.until || "";
+      let maxDayInMonth = 31;
+      if (ym && hastaFecha.startsWith(ym)) {
+        maxDayInMonth = Math.max(1, parseInt(hastaFecha.slice(8, 10), 10));
+      }
+
+      const weekRanges = {
+        W1: [1, 7],
+        W2: [8, 14],
+        W3: [15, 21],
+        W4: [22, 28],
+        W5: [29, 31],
+      };
+
+      const allowed = new Set();
+      for (let d = 1; d <= maxDayInMonth; d++) {
+        let okWeek = true;
+        if (week !== "ALL" && weekRanges[week]) {
+          okWeek = d >= weekRanges[week][0] && d <= weekRanges[week][1];
+        }
+        const okDay = daySel === "ALL" || Number(daySel) === d;
+        if (okWeek && okDay) allowed.add(d);
+      }
+      return { allowed, maxDayInMonth };
+    }
+
+    function populateDayFilter() {
+      const sel = document.getElementById("day-filter");
+      if (!sel) return;
+      const ym = document.getElementById("month-filter")?.value || "";
+      const week = document.getElementById("week-filter")?.value || "ALL";
+      const prevVal = sel.value;
+
+      const hastaFecha = RAW.metadata?.until || "";
+      let maxDay = 31;
+      if (ym && hastaFecha.startsWith(ym)) {
+        maxDay = Math.max(1, parseInt(hastaFecha.slice(8, 10), 10));
+      }
+
+      const weekRanges = {
+        W1: [1, 7],
+        W2: [8, 14],
+        W3: [15, 21],
+        W4: [22, 28],
+        W5: [29, 31],
+      };
+
+      const validDays = [];
+      for (let d = 1; d <= maxDay; d++) {
+        if (week !== "ALL" && weekRanges[week]) {
+          if (d < weekRanges[week][0] || d > weekRanges[week][1]) continue;
+        }
+        validDays.push(d);
+      }
+
+      sel.innerHTML = '<option value="ALL">Todos los días</option>';
+      validDays.forEach((d) => {
+        const opt = document.createElement("option");
+        opt.value = String(d);
+        opt.textContent = `Día ${d}`;
+        sel.appendChild(opt);
+      });
+
+      if (validDays.map(String).includes(prevVal)) {
+        sel.value = prevVal;
+      } else {
+        sel.value = "ALL";
+      }
     }
 
     function setScope(nextScope) {
@@ -348,38 +538,95 @@
       if (names.includes(prevVal)) sel.value = prevVal;
     }
 
+    function getFilteredSeries(ym) {
+      const rows = (RAW.serie_diaria_leads || []).filter(
+        (r) => r.scope === currentScope && r.fecha && r.fecha.startsWith(ym)
+      );
+      const { allowed, maxDayInMonth } = getAllowedDays(ym);
+      const mapByDay = new Map();
+      rows.forEach((r) => {
+        const day = parseInt(r.fecha.slice(8, 10), 10);
+        if (day >= 1 && day <= 31) mapByDay.set(day, r);
+      });
+
+      const items = [];
+      for (let d = 1; d <= 31; d++) {
+        const r = mapByDay.get(d);
+        const inRange = d <= maxDayInMonth && allowed.has(d);
+        items.push({
+          day: d,
+          inRange,
+          leadsCurr: inRange ? Number(r?.leads || 0) : null,
+          leadsPrev: allowed.has(d) ? Number(r?.leads_mes_pasado || 0) : null,
+          spendCurr: inRange ? Number(r?.spend || 0) : null,
+          spendPrev: allowed.has(d) ? Number(r?.spend_mes_pasado || 0) : null,
+        });
+      }
+      return { items, allowed, maxDayInMonth };
+    }
+
     function renderKpis(ym) {
       const box = document.getElementById("kpi-grid");
-      if (!box) return;
-      const comp = RAW.comparativo_por_mes?.[ym]?.[currentScope];
-      if (!comp) {
-        box.innerHTML = "";
-        return;
+      if (!box || !ym) return;
+      const prevYm = prevMonthKey(ym);
+      const { items, allowed } = getFilteredSeries(ym);
+
+      const week = document.getElementById("week-filter")?.value || "ALL";
+      const daySel = document.getElementById("day-filter")?.value || "ALL";
+      const hasCustomDayFilter = week !== "ALL" || daySel !== "ALL";
+
+      let lAct = 0, lAnt = 0, gAct = 0, gAnt = 0, diasCount = 0;
+
+      if (!hasCustomDayFilter && RAW.comparativo_por_mes?.[ym]?.[currentScope]) {
+        const comp = RAW.comparativo_por_mes[ym][currentScope];
+        lAct = Number(comp.leads_actual || 0);
+        lAnt = Number(comp.leads_mes_pasado || 0);
+        gAct = Number(comp.gasto_actual || 0);
+        gAnt = Number(comp.gasto_mes_pasado || 0);
+        diasCount = Number(comp.dias_comparados || 0);
+      } else {
+        items.forEach((it) => {
+          if (it.inRange) {
+            lAct += Number(it.leadsCurr || 0);
+            gAct += Number(it.spendCurr || 0);
+            diasCount += 1;
+          }
+          if (allowed.has(it.day)) {
+            lAnt += Number(it.leadsPrev || 0);
+            gAnt += Number(it.spendPrev || 0);
+          }
+        });
       }
-      const vg = formatVarObj(comp.var_gasto, true, true);
-      const vl = formatVarObj(comp.var_leads, false, false);
-      const vc = formatVarObj(comp.var_cpl, true, true);
+
+      const cplAct = lAct > 0 ? gAct / lAct : 0;
+      const cplAnt = lAnt > 0 ? gAnt / lAnt : 0;
+
+      const vg = formatVarObj(computeVar(gAct, gAnt, 2), true, true);
+      const vl = formatVarObj(computeVar(lAct, lAnt, 0), false, false);
+      const vc = formatVarObj(computeVar(cplAct, cplAnt, 2), true, true);
+
+      const labelSuffix = daySel !== "ALL" ? `DÍA ${daySel}` : `${diasCount} DÍAS`;
 
       box.innerHTML = `
         <div class="kpi-card">
-          <div class="kpi-label">LEADS ACUMULADOS (${comp.dias_comparados} DÍAS)</div>
-          <div class="kpi-val">${fmtInt(comp.leads_actual)}</div>
-          <div class="kpi-sub">Mes ant. (${comp.mes_anterior}): ${fmtInt(comp.leads_mes_pasado)} · <span class="${vl.cls}">${vl.text}</span></div>
+          <div class="kpi-label">LEADS ACUMULADOS (${labelSuffix})</div>
+          <div class="kpi-val">${fmtInt(lAct)}</div>
+          <div class="kpi-sub">Mes ant. (${prevYm}): ${fmtInt(lAnt)} · <span class="${vl.cls}">${vl.text}</span></div>
         </div>
         <div class="kpi-card">
-          <div class="kpi-label">GASTO ACUMULADO (${comp.dias_comparados} DÍAS)</div>
-          <div class="kpi-val">${fmtMoney(comp.gasto_actual)}</div>
-          <div class="kpi-sub">Mes ant. (${comp.mes_anterior}): ${fmtMoney(comp.gasto_mes_pasado)} · <span class="${vg.cls}">${vg.text}</span></div>
+          <div class="kpi-label">GASTO ACUMULADO (${labelSuffix})</div>
+          <div class="kpi-val">${fmtMoney(gAct)}</div>
+          <div class="kpi-sub">Mes ant. (${prevYm}): ${fmtMoney(gAnt)} · <span class="${vg.cls}">${vg.text}</span></div>
         </div>
         <div class="kpi-card">
-          <div class="kpi-label">CPL PROMEDIO (${comp.dias_comparados} DÍAS)</div>
-          <div class="kpi-val">${fmtMoney(comp.cpl_actual)}</div>
-          <div class="kpi-sub">Mes ant. (${comp.mes_anterior}): ${fmtMoney(comp.cpl_mes_pasado)} · <span class="${vc.cls}">${vc.text}</span></div>
+          <div class="kpi-label">CPL PROMEDIO (${labelSuffix})</div>
+          <div class="kpi-val">${fmtMoney(cplAct)}</div>
+          <div class="kpi-sub">Mes ant. (${prevYm}): ${fmtMoney(cplAnt)} · <span class="${vc.cls}">${vc.text}</span></div>
         </div>
       `;
     }
 
-    function drawLineChart(canvasId, currSeries, prevSeries, maxCurrDay, isCurrency) {
+    function drawInteractiveChart(canvasId, items, isCurrency, ym, hoverDay = null) {
       const canvas = document.getElementById(canvasId);
       if (!canvas) return;
       const ctx = canvas.getContext("2d");
@@ -387,14 +634,15 @@
       const h = canvas.height;
       ctx.clearRect(0, 0, w, h);
 
-      const pad = { top: 18, right: 16, bottom: 32, left: 56 };
+      const pad = { top: 18, right: 18, bottom: 32, left: 56 };
       const plotW = w - pad.left - pad.right;
       const plotH = h - pad.top - pad.bottom;
 
-      const activeCurr = currSeries.slice(0, maxCurrDay);
-      const maxVal = Math.max(1, ...activeCurr, ...prevSeries);
+      const valsCurr = items.filter((i) => i.leadsCurr !== null && i.spendCurr !== null).map((i) => (isCurrency ? i.spendCurr : i.leadsCurr));
+      const valsPrev = items.filter((i) => i.leadsPrev !== null && i.spendPrev !== null).map((i) => (isCurrency ? i.spendPrev : i.leadsPrev));
+      const maxVal = Math.max(1, ...valsCurr, ...valsPrev);
 
-      ctx.strokeStyle = "#2a2a2f";
+      ctx.strokeStyle = "#26262b";
       ctx.lineWidth = 1;
       for (let i = 0; i <= 4; i++) {
         const y = pad.top + (plotH * i) / 4;
@@ -403,11 +651,11 @@
         ctx.lineTo(w - pad.right, y);
         ctx.stroke();
 
-        const val = maxVal * (1 - i / 4);
+        const yVal = maxVal * (1 - i / 4);
         ctx.fillStyle = "#b0b0b8";
         ctx.font = "11px system-ui, sans-serif";
         ctx.textAlign = "right";
-        ctx.fillText(isCurrency ? `$${Math.round(val)}` : `${Math.round(val)}`, pad.left - 8, y + 4);
+        ctx.fillText(isCurrency ? `$${Math.round(yVal)}` : `${Math.round(yVal)}`, pad.left - 8, y + 4);
       }
 
       ctx.fillStyle = "#b0b0b8";
@@ -418,54 +666,187 @@
         ctx.fillText(String(d), x, h - 10);
       }
 
-      const drawSeries = (series, limitCount, color, dashed) => {
-        ctx.save();
-        ctx.strokeStyle = color;
-        ctx.lineWidth = 2.4;
-        if (dashed) ctx.setLineDash([5, 4]);
-        ctx.beginPath();
-        for (let idx = 0; idx < limitCount; idx++) {
-          const val = series[idx];
-          const x = pad.left + (idx / 30) * plotW;
-          const y = pad.top + plotH - (val / maxVal) * plotH;
-          if (idx === 0) ctx.moveTo(x, y);
-          else ctx.lineTo(x, y);
+      const dayToX = (d) => pad.left + ((d - 1) / 30) * plotW;
+      const valToY = (v) => pad.top + plotH - (Number(v || 0) / maxVal) * plotH;
+
+      const pointsCurr = [];
+      const pointsPrev = [];
+
+      items.forEach((it) => {
+        const x = dayToX(it.day);
+        if (it.leadsPrev !== null && it.spendPrev !== null) {
+          const pv = isCurrency ? it.spendPrev : it.leadsPrev;
+          pointsPrev.push({ day: it.day, x, y: valToY(pv), val: pv });
         }
-        ctx.stroke();
-        ctx.restore();
-      };
-
-      drawSeries(prevSeries, 31, "#9ca3af", true);
-      drawSeries(currSeries, maxCurrDay, "#f0531c", false);
-    }
-
-    function renderCharts(ym) {
-      const rows = (RAW.serie_diaria_leads || []).filter(
-        (r) => r.scope === currentScope && r.fecha && r.fecha.startsWith(ym)
-      );
-      const leadsCurr = Array(31).fill(0);
-      const leadsPrev = Array(31).fill(0);
-      const spendCurr = Array(31).fill(0);
-      const spendPrev = Array(31).fill(0);
-
-      const hastaFecha = RAW.metadata?.until || "";
-      let maxCurrDay = 31;
-      if (hastaFecha && hastaFecha.startsWith(ym)) {
-        maxCurrDay = Math.max(1, parseInt(hastaFecha.slice(8, 10), 10));
-      }
-
-      rows.forEach((r) => {
-        const day = parseInt(r.fecha.slice(8, 10), 10);
-        if (day >= 1 && day <= 31) {
-          leadsCurr[day - 1] = Number(r.leads || 0);
-          leadsPrev[day - 1] = Number(r.leads_mes_pasado || 0);
-          spendCurr[day - 1] = Number(r.spend || 0);
-          spendPrev[day - 1] = Number(r.spend_mes_pasado || 0);
+        if (it.inRange && it.leadsCurr !== null && it.spendCurr !== null) {
+          const cv = isCurrency ? it.spendCurr : it.leadsCurr;
+          pointsCurr.push({ day: it.day, x, y: valToY(cv), val: cv });
         }
       });
 
-      drawLineChart("leads-chart", leadsCurr, leadsPrev, maxCurrDay, false);
-      drawLineChart("spend-chart", spendCurr, spendPrev, maxCurrDay, true);
+      if (hoverDay !== null) {
+        const hx = dayToX(hoverDay);
+        ctx.save();
+        ctx.strokeStyle = "rgba(255, 255, 255, 0.25)";
+        ctx.setLineDash([4, 4]);
+        ctx.beginPath();
+        ctx.moveTo(hx, pad.top);
+        ctx.lineTo(hx, pad.top + plotH);
+        ctx.stroke();
+        ctx.restore();
+      }
+
+      if (pointsPrev.length > 0) {
+        ctx.save();
+        ctx.strokeStyle = "#fca585";
+        ctx.lineWidth = 2;
+        ctx.setLineDash([5, 4]);
+        ctx.beginPath();
+        pointsPrev.forEach((pt, idx) => {
+          if (idx === 0) ctx.moveTo(pt.x, pt.y);
+          else ctx.lineTo(pt.x, pt.y);
+        });
+        ctx.stroke();
+        ctx.restore();
+
+        pointsPrev.forEach((pt) => {
+          ctx.beginPath();
+          ctx.arc(pt.x, pt.y, pt.day === hoverDay ? 5 : 3.2, 0, Math.PI * 2);
+          ctx.fillStyle = "#141416";
+          ctx.fill();
+          ctx.lineWidth = 1.8;
+          ctx.strokeStyle = "#fca585";
+          ctx.stroke();
+        });
+      }
+
+      if (pointsCurr.length > 0) {
+        ctx.save();
+        ctx.strokeStyle = "#f0531c";
+        ctx.lineWidth = 2.6;
+        ctx.beginPath();
+        pointsCurr.forEach((pt, idx) => {
+          if (idx === 0) ctx.moveTo(pt.x, pt.y);
+          else ctx.lineTo(pt.x, pt.y);
+        });
+        ctx.stroke();
+        ctx.restore();
+
+        pointsCurr.forEach((pt) => {
+          const isHovered = pt.day === hoverDay;
+          ctx.beginPath();
+          ctx.arc(pt.x, pt.y, isHovered ? 6 : 4, 0, Math.PI * 2);
+          ctx.fillStyle = "#f0531c";
+          ctx.fill();
+          ctx.lineWidth = isHovered ? 2.5 : 1.5;
+          ctx.strokeStyle = "#ffffff";
+          ctx.stroke();
+        });
+      }
+
+      chartStates[canvasId] = { items, isCurrency, ym, dayToX, pointsCurr, pointsPrev };
+    }
+
+    function showTooltip(clientX, clientY, state, day) {
+      const tt = document.getElementById("hover-tooltip");
+      if (!tt || !state) return;
+      const item = state.items.find((i) => i.day === day);
+      if (!item || (!item.inRange && item.leadsPrev === null)) {
+        tt.style.display = "none";
+        return;
+      }
+
+      const prevYm = prevMonthKey(state.ym);
+      const currVal = item.inRange ? (state.isCurrency ? item.spendCurr : item.leadsCurr) : null;
+      const prevVal = item.leadsPrev !== null ? (state.isCurrency ? item.spendPrev : item.leadsPrev) : null;
+
+      const fmtVal = (v) => (v === null ? "-" : state.isCurrency ? fmtMoney(v) : fmtInt(v));
+
+      let diffLine = "";
+      if (currVal !== null && prevVal !== null) {
+        const diff = currVal - prevVal;
+        const sign = diff > 0 ? "+" : diff < 0 ? "-" : "";
+        const absStr = state.isCurrency ? fmtMoney(Math.abs(diff)) : fmtInt(Math.abs(diff));
+        const pctStr = prevVal > 0 ? ` (${sign}${Math.abs((diff / prevVal) * 100).toFixed(1)}%)` : "";
+        diffLine = `<div class="tt-diff">Diferencia vs ${prevYm}: <strong>${sign}${absStr}${pctStr}</strong></div>`;
+      }
+
+      tt.innerHTML = `
+        <div class="tt-day">Día ${day}</div>
+        <div class="tt-row">
+          <span class="tt-label"><span class="tt-box-curr"></span> ${state.ym} (Actual):</span>
+          <span class="tt-val">${fmtVal(currVal)}</span>
+        </div>
+        <div class="tt-row">
+          <span class="tt-label"><span class="tt-box-prev"></span> ${prevYm} (Mes pasado):</span>
+          <span class="tt-val">${fmtVal(prevVal)}</span>
+        </div>
+        ${diffLine}
+      `;
+
+      tt.style.display = "block";
+      const offsetX = 16;
+      const offsetY = 14;
+      const maxX = window.innerWidth - tt.offsetWidth - 12;
+      const maxY = window.innerHeight - tt.offsetHeight - 12;
+      tt.style.left = `${Math.min(maxX, Math.max(12, clientX + offsetX))}px`;
+      tt.style.top = `${Math.min(maxY, Math.max(12, clientY + offsetY))}px`;
+    }
+
+    function hideTooltip() {
+      const tt = document.getElementById("hover-tooltip");
+      if (tt) tt.style.display = "none";
+    }
+
+    function bindChartHover(canvasId) {
+      const canvas = document.getElementById(canvasId);
+      if (!canvas) return;
+
+      canvas.addEventListener("mousemove", (e) => {
+        const st = chartStates[canvasId];
+        if (!st) return;
+        const rect = canvas.getBoundingClientRect();
+        const scaleX = canvas.width / rect.width;
+        const xCanvas = (e.clientX - rect.left) * scaleX;
+
+        let closestDay = null;
+        let minDist = Infinity;
+        for (let d = 1; d <= 31; d++) {
+          const dx = Math.abs(st.dayToX(d) - xCanvas);
+          if (dx < minDist) {
+            minDist = dx;
+            closestDay = d;
+          }
+        }
+
+        const threshold = (canvas.width / 31) * 0.65;
+        if (closestDay !== null && minDist <= threshold) {
+          drawInteractiveChart(canvasId, st.items, st.isCurrency, st.ym, closestDay);
+          showTooltip(e.clientX, e.clientY, st, closestDay);
+        } else {
+          drawInteractiveChart(canvasId, st.items, st.isCurrency, st.ym, null);
+          hideTooltip();
+        }
+      });
+
+      canvas.addEventListener("mouseleave", () => {
+        const st = chartStates[canvasId];
+        if (st) drawInteractiveChart(canvasId, st.items, st.isCurrency, st.ym, null);
+        hideTooltip();
+      });
+    }
+
+    function renderCharts(ym) {
+      if (!ym) return;
+      const prevYm = prevMonthKey(ym);
+      document.getElementById("legend-curr-leads").textContent = `${ym} (Actual)`;
+      document.getElementById("legend-prev-leads").textContent = `${prevYm} (Mes pasado)`;
+      document.getElementById("legend-curr-spend").textContent = `${ym} (Actual)`;
+      document.getElementById("legend-prev-spend").textContent = `${prevYm} (Mes pasado)`;
+
+      const { items } = getFilteredSeries(ym);
+      drawInteractiveChart("leads-chart", items, false, ym, null);
+      drawInteractiveChart("spend-chart", items, true, ym, null);
     }
 
     function renderTable(ym) {
@@ -525,7 +906,11 @@
       }
 
       populateMonthFilter();
+      populateDayFilter();
       populateCampaignFilter();
+
+      bindChartHover("leads-chart");
+      bindChartHover("spend-chart");
 
       document.querySelectorAll(".scope-btn").forEach((btn) => {
         btn.addEventListener("click", () => setScope(btn.dataset.scope));
@@ -536,9 +921,17 @@
       });
 
       document.getElementById("month-filter")?.addEventListener("change", () => {
+        populateDayFilter();
         populateCampaignFilter();
         renderAll();
       });
+
+      document.getElementById("week-filter")?.addEventListener("change", () => {
+        populateDayFilter();
+        renderAll();
+      });
+
+      document.getElementById("day-filter")?.addEventListener("change", renderAll);
       document.getElementById("campaign-filter")?.addEventListener("change", renderAll);
       document.getElementById("search-input")?.addEventListener("input", renderAll);
 
