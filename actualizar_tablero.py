@@ -56,10 +56,12 @@ def extract_leads(actions, campaign_name: str = "") -> int:
             val = 0.0
         by_type[atype] = max(by_type.get(atype, 0.0), val)
 
-    # Si el nombre de la campaña indica SMS / mensajes o no tiene leads de formulario,
-    # revisamos primero las métricas de conversación que reporta Meta en "Resultados"
     name_upper = (campaign_name or "").upper()
-    is_msg_campaign = "[SMS]" in name_upper or "MENSAJE" in name_upper or "WHATSAPP" in name_upper
+    is_msg_campaign = (
+        "[SMS]" in name_upper
+        or "MENSAJE" in name_upper
+        or "WHATSAPP" in name_upper
+    )
 
     if is_msg_campaign:
         for mtype in MSG_TYPES:
@@ -355,6 +357,21 @@ def main():
         rows_camp.sort(key=lambda x: x["gasto_actual"], reverse=True)
         campanas_por_mes[ym] = rows_camp
 
+    detalle_diario = [
+        {
+            "fecha": rec["fecha"],
+            "ym": rec["ym"],
+            "day": rec["day"],
+            "brand": rec["brand"],
+            "campaign_name": rec["campaign_name"],
+            "status": rec["status"],
+            "daily_budget": rec["daily_budget"],
+            "spend": rec["spend"],
+            "leads": rec["leads"],
+        }
+        for rec in raw_records
+    ]
+
     output = {
         "metadata": {
             "since": since_str,
@@ -369,12 +386,16 @@ def main():
         "comparativo_por_mes": comparativo_por_mes,
         "serie_diaria_leads": serie_diaria_leads,
         "campanas_por_mes": campanas_por_mes,
+        "detalle_diario": detalle_diario,
     }
 
     with open("tablero_leads_urgentito.json", "w", encoding="utf-8") as f:
         json.dump(output, f, ensure_ascii=False, indent=2)
 
-    print(f"JSON generado con {len(serie_diaria_leads)} puntos diarios y meses {meses_disponibles}.")
+    print(
+        f"JSON generado con {len(serie_diaria_leads)} puntos diarios, "
+        f"{len(detalle_diario)} filas diarias por campaña y meses {meses_disponibles}."
+    )
 
 
 if __name__ == "__main__":
