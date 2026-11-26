@@ -350,7 +350,7 @@
 
     <section class="panel">
       <div class="panel-head">
-        <h2 class="panel-title">Desglose por Campaña: Presupuesto, Gasto al Día y Leads vs Mes Pasado</h2>
+        <h2 class="panel-title" id="table-title">Desglose por Campaña: Presupuesto, Gasto al Día y Leads vs Mes Pasado</h2>
       </div>
       <div class="table-wrap">
         <table>
@@ -849,18 +849,91 @@
       drawInteractiveChart("spend-chart", items, true, ym, null);
     }
 
-    function renderTable(ym) {
-      const tbody = document.getElementById("campaign-table-body");
-      if (!tbody) return;
+    function buildFilteredCampaignList(ym) {
       const campVal = document.getElementById("campaign-filter")?.value || "ALL";
       const searchVal = (document.getElementById("search-input")?.value || "").trim().toLowerCase();
+      const week = document.getElementById("week-filter")?.value || "ALL";
+      const daySel = document.getElementById("day-filter")?.value || "ALL";
+      const hasCustomDayFilter = week !== "ALL" || daySel !== "ALL";
 
-      const list = (RAW.campanas_por_mes?.[ym] || []).filter((c) => {
+      let baseList = [];
+
+      if (!hasCustomDayFilter || !Array.isArray(RAW.detalle_diario)) {
+        baseList = (RAW.campanas_por_mes?.[ym] || []).map((c) => ({ ...c }));
+      } else {
+        const { allowed } = getAllowedDays(ym);
+        const prevYm = prevMonthKey(ym);
+        const agg = new Map();
+
+        const getOrCreate = (brand, campaignName, fallbackMeta = {}) => {
+          const key = `${brand}|||${campaignName}`;
+          if (!agg.has(key)) {
+            agg.set(key, {
+              brand,
+              campaign_name: campaignName,
+              status: fallbackMeta.status || "ACTIVE",
+              daily_budget: Number(fallbackMeta.daily_budget || 0),
+              gasto_actual: 0,
+              gasto_mes_pasado: 0,
+              leads_actual: 0,
+              leads_mes_pasado: 0,
+            });
+          }
+          return agg.get(key);
+        };
+
+        // Precargar presupuestos y estados conocidos de la campaña en el mes
+        (RAW.campanas_por_mes?.[ym] || []).forEach((c) => {
+          const entry = getOrCreate(c.brand, c.campaign_name, c);
+          entry.daily_budget = Math.max(entry.daily_budget, Number(c.daily_budget || 0));
+          entry.status = c.status || entry.status;
+        });
+
+        RAW.detalle_diario.forEach((row) => {
+          if (!row || !allowed.has(Number(row.day))) return;
+          if (row.ym === ym) {
+            const entry = getOrCreate(row.brand, row.campaign_name, row);
+            entry.gasto_actual = Number((entry.gasto_actual + Number(row.spend || 0)).toFixed(2));
+            entry.leads_actual += Number(row.leads || 0);
+            entry.daily_budget = Math.max(entry.daily_budget, Number(row.daily_budget || 0));
+            if (row.status) entry.status = row.status;
+          } else if (row.ym === prevYm) {
+            const entry = getOrCreate(row.brand, row.campaign_name, row);
+            entry.gasto_mes_pasado = Number((entry.gasto_mes_pasado + Number(row.spend || 0)).toFixed(2));
+            entry.leads_mes_pasado += Number(row.leads || 0);
+          }
+        });
+
+        baseList = Array.from(agg.values())
+          .filter((item) => {
+            const hasActivityInFilter =
+              item.gasto_actual > 0 ||
+              item.leads_actual > 0 ||
+              item.gasto_mes_pasado > 0 ||
+              item.leads_mes_pasado > 0;
+            return hasActivityInFilter;
+          })
+          .map((item) => ({
+            ...item,
+            var_gasto: computeVar(item.gasto_actual, item.gasto_mes_pasado, 2),
+            var_leads: computeVar(item.leads_actual, item.leads_mes_pasado, 0),
+            cpl_actual: item.leads_actual > 0 ? Number((item.gasto_actual / item.leads_actual).toFixed(2)) : 0,
+          }))
+          .sort((a, b) => b.gasto_actual - a.gasto_actual);
+      }
+
+      return baseList.filter((c) => {
         const okScope = currentScope === "Juntos" || c.brand === currentScope;
         const okCamp = campVal === "ALL" || c.campaign_name === campVal;
         const okSearch = !searchVal || (c.campaign_name || "").toLowerCase().includes(searchVal);
         return okScope && okCamp && okSearch;
       });
+    }
+
+    function renderTable(ym) {
+      const tbody = document.getElementById("campaign-table-body");
+      if (!tbody) return;
+      const list = buildFilteredCampaignList(ym);
 
       if (!list.length) {
         tbody.innerHTML = '<tr><td colspan="9" class="empty-msg">Sin registros para los filtros seleccionados.</td></tr>';
