@@ -30,18 +30,27 @@ def clean_id(raw: str) -> str:
 def extract_leads(actions) -> int:
     if not isinstance(actions, list):
         return 0
-    total = 0.0
+
+    by_type = {}
     for item in actions:
-        if item.get("action_type") in {
-            "onsite_conversion.lead_grouped",
-            "lead",
-            "onsite_conversion.lead",
-        }:
-            try:
-                total += float(item.get("value", 0) or 0)
-            except (ValueError, TypeError):
-                pass
-    return int(round(total))
+        atype = item.get("action_type")
+        if not atype:
+            continue
+        try:
+            val = float(item.get("value", 0) or 0)
+        except (ValueError, TypeError):
+            val = 0.0
+        by_type[atype] = max(by_type.get(atype, 0.0), val)
+
+    for preferred_type in (
+        "onsite_conversion.lead_grouped",
+        "lead",
+        "onsite_conversion.lead",
+    ):
+        if preferred_type in by_type:
+            return int(round(by_type[preferred_type]))
+
+    return 0
 
 
 def calc_var(curr: float, prev: float, decimals: int = 2) -> dict:
