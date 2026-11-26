@@ -42,6 +42,7 @@ def extract_leads(actions) -> int:
             val = 0.0
         by_type[atype] = max(by_type.get(atype, 0.0), val)
 
+    # 1) Prioridad estricta para leads de formulario / conversión de lead
     for preferred_type in (
         "onsite_conversion.lead_grouped",
         "lead",
@@ -49,6 +50,14 @@ def extract_leads(actions) -> int:
     ):
         if preferred_type in by_type:
             return int(round(by_type[preferred_type]))
+
+    # 2) Si la campaña es de mensajes (como [SMS][VENTAS]...) y no tiene leads, toma conversaciones iniciadas
+    for msg_type in (
+        "onsite_conversion.messaging_conversation_started_7d",
+        "onsite_conversion.messaging_conversation_started",
+    ):
+        if msg_type in by_type:
+            return int(round(by_type[msg_type]))
 
     return 0
 
