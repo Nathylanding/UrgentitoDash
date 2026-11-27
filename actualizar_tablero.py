@@ -19,6 +19,11 @@ ACCOUNTS = [
         "id_env": "URGENTITO_AMBATO_ACCOUNT_ID",
         "token_env": "URGENTITO_AMBATO_ACCESS_TOKEN",
     },
+    {
+        "brand": "Urgentito Ibarra",
+        "id_env": "URGENTITO_IBARRA_ACCOUNT_ID",
+        "token_env": "URGENTITO_IBARRA_ACCESS_TOKEN",
+    },
 ]
 
 LEAD_TYPES = (
@@ -199,7 +204,7 @@ def main():
             print(f"Error en {brand} ({acc_id}): {exc}")
             accounts_failed.append({"brand": brand, "account_id": acc_id, "error": str(exc)})
 
-    scopes = ["Juntos", "Urgentito Talleres", "Urgentito Ambato"]
+    scopes = ["Juntos", "Urgentito Talleres", "Urgentito Ambato", "Urgentito Ibarra"]
     all_dates = pd.date_range(since_str, until_str, freq="D").strftime("%Y-%m-%d").tolist()
     all_months = sorted({d[:7] for d in all_dates})
     meses_disponibles = [m for m in all_months if m > "2026-08"]
