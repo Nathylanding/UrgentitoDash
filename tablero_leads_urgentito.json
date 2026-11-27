@@ -1,9 +1,9 @@
 {
   "metadata": {
     "since": "2026-08-01",
-    "until": "2026-11-26",
-    "fecha_referencia": "2026-11-26",
-    "generated_at": "2026-11-26",
+    "until": "2026-11-27",
+    "fecha_referencia": "2026-11-27",
+    "generated_at": "2026-11-27",
     "meses_disponibles": [
       "2026-09",
       "2026-10",
@@ -19,12 +19,12 @@
       {
         "brand": "Urgentito Talleres",
         "account_id": "1394825968565785",
-        "error": "Error /insights act_1394825968565785 (400): {\"error\":{\"message\":\"Error validating access token: Session has expired on Thursday, 26-Nov-26 16:00:00 PST. The current time is Thursday, 26-Nov-26 16:08:57 PST.\",\"type\":\"OAuthException\",\"code\":190,\"error_subcode\":463,\"fbtrace_id\":\"A4k4u-yFfsrYJ5pEXwDaWKQ\"}}"
+        "error": "Error /insights act_1394825968565785 (400): {\"error\":{\"message\":\"Error validating access token: Session has expired on Thursday, 26-Nov-26 16:00:00 PST. The current time is Friday, 27-Nov-26 05:49:45 PST.\",\"type\":\"OAuthException\",\"code\":190,\"error_subcode\":463,\"fbtrace_id\":\"AV9g_vQMMAev4-_TsexhYEq\"}}"
       },
       {
         "brand": "Urgentito Ambato",
         "account_id": "428965856955069",
-        "error": "Error /insights act_428965856955069 (400): {\"error\":{\"message\":\"Error validating access token: Session has expired on Thursday, 26-Nov-26 16:00:00 PST. The current time is Thursday, 26-Nov-26 16:08:58 PST.\",\"type\":\"OAuthException\",\"code\":190,\"error_subcode\":463,\"fbtrace_id\":\"AInidDGDkVpEfRR37e_5jwk\"}}"
+        "error": "Error /insights act_428965856955069 (400): {\"error\":{\"message\":\"Error validating access token: Session has expired on Thursday, 26-Nov-26 16:00:00 PST. The current time is Friday, 27-Nov-26 05:49:46 PST.\",\"type\":\"OAuthException\",\"code\":190,\"error_subcode\":463,\"fbtrace_id\":\"A9pUf1ehjr4VXK8fbMQCWCQ\"}}"
       }
     ]
   },
@@ -175,7 +175,7 @@
       "Juntos": {
         "mes": "2026-11",
         "mes_anterior": "2026-10",
-        "dias_comparados": 26,
+        "dias_comparados": 27,
         "gasto_actual": 0.0,
         "gasto_mes_pasado": 0.0,
         "var_gasto": {
@@ -198,7 +198,7 @@
       "Urgentito Talleres": {
         "mes": "2026-11",
         "mes_anterior": "2026-10",
-        "dias_comparados": 26,
+        "dias_comparados": 27,
         "gasto_actual": 0.0,
         "gasto_mes_pasado": 0.0,
         "var_gasto": {
@@ -221,7 +221,7 @@
       "Urgentito Ambato": {
         "mes": "2026-11",
         "mes_anterior": "2026-10",
-        "dias_comparados": 26,
+        "dias_comparados": 27,
         "gasto_actual": 0.0,
         "gasto_mes_pasado": 0.0,
         "var_gasto": {
@@ -2723,6 +2723,27 @@
       }
     },
     {
+      "fecha": "2026-11-27",
+      "scope": "Juntos",
+      "leads": 0,
+      "spend": 0.0,
+      "cpl_diario": 0.0,
+      "promedio_movil_7d": 0.0,
+      "impressions": 0,
+      "clicks": 0,
+      "fecha_mes_pasado": "2026-10-27",
+      "leads_mes_pasado": 0,
+      "var_leads_vs_mes_pasado": {
+        "abs": 0,
+        "pct": null
+      },
+      "spend_mes_pasado": 0.0,
+      "var_spend_vs_mes_pasado": {
+        "abs": 0.0,
+        "pct": null
+      }
+    },
+    {
       "fecha": "2026-08-01",
       "scope": "Urgentito Talleres",
       "leads": 0,
@@ -5201,6 +5222,27 @@
       }
     },
     {
+      "fecha": "2026-11-27",
+      "scope": "Urgentito Talleres",
+      "leads": 0,
+      "spend": 0.0,
+      "cpl_diario": 0.0,
+      "promedio_movil_7d": 0.0,
+      "impressions": 0,
+      "clicks": 0,
+      "fecha_mes_pasado": "2026-10-27",
+      "leads_mes_pasado": 0,
+      "var_leads_vs_mes_pasado": {
+        "abs": 0,
+        "pct": null
+      },
+      "spend_mes_pasado": 0.0,
+      "var_spend_vs_mes_pasado": {
+        "abs": 0.0,
+        "pct": null
+      }
+    },
+    {
       "fecha": "2026-08-01",
       "scope": "Urgentito Ambato",
       "leads": 0,
@@ -7667,6 +7709,27 @@
       "impressions": 0,
       "clicks": 0,
       "fecha_mes_pasado": "2026-10-26",
+      "leads_mes_pasado": 0,
+      "var_leads_vs_mes_pasado": {
+        "abs": 0,
+        "pct": null
+      },
+      "spend_mes_pasado": 0.0,
+      "var_spend_vs_mes_pasado": {
+        "abs": 0.0,
+        "pct": null
+      }
+    },
+    {
+      "fecha": "2026-11-27",
+      "scope": "Urgentito Ambato",
+      "leads": 0,
+      "spend": 0.0,
+      "cpl_diario": 0.0,
+      "promedio_movil_7d": 0.0,
+      "impressions": 0,
+      "clicks": 0,
+      "fecha_mes_pasado": "2026-10-27",
       "leads_mes_pasado": 0,
       "var_leads_vs_mes_pasado": {
         "abs": 0,
