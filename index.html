@@ -274,6 +274,7 @@
         <button type="button" class="scope-btn active" data-scope="Juntos">Todos los lugares</button>
         <button type="button" class="scope-btn" data-scope="Urgentito Talleres">Talleres</button>
         <button type="button" class="scope-btn" data-scope="Urgentito Ambato">Ambato</button>
+        <button type="button" class="scope-btn" data-scope="Urgentito Ibarra">Ibarra</button>
       </div>
 
       <div class="filters">
@@ -283,6 +284,7 @@
             <option value="Juntos">Todos los lugares</option>
             <option value="Urgentito Talleres">Talleres</option>
             <option value="Urgentito Ambato">Ambato</option>
+            <option value="Urgentito Ibarra">Ibarra</option>
           </select>
         </div>
         <div class="filter-box">
@@ -389,6 +391,7 @@
     const fmtLugar = (brand) => {
       if (brand === "Urgentito Talleres") return "Talleres";
       if (brand === "Urgentito Ambato") return "Ambato";
+      if (brand === "Urgentito Ibarra") return "Ibarra";
       return brand || "Todos los lugares";
     };
 
@@ -882,7 +885,6 @@
           return agg.get(key);
         };
 
-        // Precargar presupuestos y estados conocidos de la campaña en el mes
         (RAW.campanas_por_mes?.[ym] || []).forEach((c) => {
           const entry = getOrCreate(c.brand, c.campaign_name, c);
           entry.daily_budget = Math.max(entry.daily_budget, Number(c.daily_budget || 0));
@@ -906,12 +908,12 @@
 
         baseList = Array.from(agg.values())
           .filter((item) => {
-            const hasActivityInFilter =
+            return (
               item.gasto_actual > 0 ||
               item.leads_actual > 0 ||
               item.gasto_mes_pasado > 0 ||
-              item.leads_mes_pasado > 0;
-            return hasActivityInFilter;
+              item.leads_mes_pasado > 0
+            );
           })
           .map((item) => ({
             ...item,
