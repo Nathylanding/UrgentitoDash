@@ -180,10 +180,10 @@
           "abs": -1438.93,
           "pct": -23.4
         },
-        "leads_actual": 2021,
+        "leads_actual": 2022,
         "leads_mes_pasado": 3040,
         "var_leads": {
-          "abs": -1019,
+          "abs": -1018,
           "pct": -33.5
         },
         "cpl_actual": 2.33,
@@ -203,17 +203,17 @@
           "abs": -1280.71,
           "pct": -26.9
         },
-        "leads_actual": 1152,
+        "leads_actual": 1153,
         "leads_mes_pasado": 1917,
         "var_leads": {
-          "abs": -765,
+          "abs": -764,
           "pct": -39.9
         },
-        "cpl_actual": 3.02,
+        "cpl_actual": 3.01,
         "cpl_mes_pasado": 2.48,
         "var_cpl": {
-          "abs": 0.54,
-          "pct": 21.8
+          "abs": 0.53,
+          "pct": 21.4
         }
       },
       "Urgentito Ambato": {
@@ -2723,17 +2723,17 @@
     {
       "fecha": "2026-11-27",
       "scope": "Juntos",
-      "leads": 27,
+      "leads": 28,
       "spend": 34.11,
-      "cpl_diario": 1.26,
-      "promedio_movil_7d": 81.43,
+      "cpl_diario": 1.22,
+      "promedio_movil_7d": 81.57,
       "impressions": 8950,
       "clicks": 224,
       "fecha_mes_pasado": "2026-10-27",
       "leads_mes_pasado": 134,
       "var_leads_vs_mes_pasado": {
-        "abs": -107,
-        "pct": -79.9
+        "abs": -106,
+        "pct": -79.1
       },
       "spend_mes_pasado": 274.77,
       "var_spend_vs_mes_pasado": {
@@ -5222,17 +5222,17 @@
     {
       "fecha": "2026-11-27",
       "scope": "Urgentito Talleres",
-      "leads": 5,
+      "leads": 6,
       "spend": 16.43,
-      "cpl_diario": 3.29,
-      "promedio_movil_7d": 23.71,
+      "cpl_diario": 2.74,
+      "promedio_movil_7d": 23.86,
       "impressions": 3559,
       "clicks": 52,
       "fecha_mes_pasado": "2026-10-27",
       "leads_mes_pasado": 65,
       "var_leads_vs_mes_pasado": {
-        "abs": -60,
-        "pct": -92.3
+        "abs": -59,
+        "pct": -90.8
       },
       "spend_mes_pasado": 204.48,
       "var_spend_vs_mes_pasado": {
@@ -8517,13 +8517,13 @@
           "abs": 196.21,
           "pct": null
         },
-        "leads_actual": 67,
+        "leads_actual": 68,
         "leads_mes_pasado": 0,
         "var_leads": {
-          "abs": 67,
+          "abs": 68,
           "pct": null
         },
-        "cpl_actual": 2.93
+        "cpl_actual": 2.89
       },
       {
         "brand": "Urgentito Ambato",
@@ -14622,7 +14622,7 @@
       "status": "ACTIVE",
       "daily_budget": 0.0,
       "spend": 4.87,
-      "leads": 2
+      "leads": 3
     },
     {
       "fecha": "2026-11-27",
