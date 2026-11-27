@@ -12,7 +12,8 @@
     "scopes": [
       "Juntos",
       "Urgentito Talleres",
-      "Urgentito Ambato"
+      "Urgentito Ambato",
+      "Urgentito Ibarra"
     ],
     "accounts_ok": [
       {
@@ -24,7 +25,12 @@
         "account_id": "428965856955069"
       }
     ],
-    "accounts_failed": []
+    "accounts_failed": [
+      {
+        "brand": "Urgentito Ibarra",
+        "error": "Faltan variables de entorno"
+      }
+    ]
   },
   "comparativo_por_mes": {
     "2026-09": {
@@ -95,6 +101,29 @@
         "var_cpl": {
           "abs": 0.39,
           "pct": 37.9
+        }
+      },
+      "Urgentito Ibarra": {
+        "mes": "2026-09",
+        "mes_anterior": "2026-08",
+        "dias_comparados": 30,
+        "gasto_actual": 0.0,
+        "gasto_mes_pasado": 0.0,
+        "var_gasto": {
+          "abs": 0.0,
+          "pct": null
+        },
+        "leads_actual": 0,
+        "leads_mes_pasado": 0,
+        "var_leads": {
+          "abs": 0,
+          "pct": null
+        },
+        "cpl_actual": 0.0,
+        "cpl_mes_pasado": 0.0,
+        "var_cpl": {
+          "abs": 0.0,
+          "pct": null
         }
       }
     },
@@ -167,6 +196,29 @@
           "abs": -0.18,
           "pct": -12.7
         }
+      },
+      "Urgentito Ibarra": {
+        "mes": "2026-10",
+        "mes_anterior": "2026-09",
+        "dias_comparados": 31,
+        "gasto_actual": 0.0,
+        "gasto_mes_pasado": 0.0,
+        "var_gasto": {
+          "abs": 0.0,
+          "pct": null
+        },
+        "leads_actual": 0,
+        "leads_mes_pasado": 0,
+        "var_leads": {
+          "abs": 0,
+          "pct": null
+        },
+        "cpl_actual": 0.0,
+        "cpl_mes_pasado": 0.0,
+        "var_cpl": {
+          "abs": 0.0,
+          "pct": null
+        }
       }
     },
     "2026-11": {
@@ -174,17 +226,17 @@
         "mes": "2026-11",
         "mes_anterior": "2026-10",
         "dias_comparados": 27,
-        "gasto_actual": 4702.77,
+        "gasto_actual": 4713.37,
         "gasto_mes_pasado": 6141.7,
         "var_gasto": {
-          "abs": -1438.93,
-          "pct": -23.4
+          "abs": -1428.33,
+          "pct": -23.3
         },
-        "leads_actual": 2022,
+        "leads_actual": 2025,
         "leads_mes_pasado": 3040,
         "var_leads": {
-          "abs": -1018,
-          "pct": -33.5
+          "abs": -1015,
+          "pct": -33.4
         },
         "cpl_actual": 2.33,
         "cpl_mes_pasado": 2.02,
@@ -197,11 +249,11 @@
         "mes": "2026-11",
         "mes_anterior": "2026-10",
         "dias_comparados": 27,
-        "gasto_actual": 3474.51,
+        "gasto_actual": 3480.26,
         "gasto_mes_pasado": 4755.22,
         "var_gasto": {
-          "abs": -1280.71,
-          "pct": -26.9
+          "abs": -1274.96,
+          "pct": -26.8
         },
         "leads_actual": 1153,
         "leads_mes_pasado": 1917,
@@ -209,34 +261,57 @@
           "abs": -764,
           "pct": -39.9
         },
-        "cpl_actual": 3.01,
+        "cpl_actual": 3.02,
         "cpl_mes_pasado": 2.48,
         "var_cpl": {
-          "abs": 0.53,
-          "pct": 21.4
+          "abs": 0.54,
+          "pct": 21.8
         }
       },
       "Urgentito Ambato": {
         "mes": "2026-11",
         "mes_anterior": "2026-10",
         "dias_comparados": 27,
-        "gasto_actual": 1228.26,
+        "gasto_actual": 1233.11,
         "gasto_mes_pasado": 1386.48,
         "var_gasto": {
-          "abs": -158.22,
-          "pct": -11.4
+          "abs": -153.37,
+          "pct": -11.1
         },
-        "leads_actual": 869,
+        "leads_actual": 872,
         "leads_mes_pasado": 1123,
         "var_leads": {
-          "abs": -254,
-          "pct": -22.6
+          "abs": -251,
+          "pct": -22.4
         },
         "cpl_actual": 1.41,
         "cpl_mes_pasado": 1.23,
         "var_cpl": {
           "abs": 0.18,
           "pct": 14.6
+        }
+      },
+      "Urgentito Ibarra": {
+        "mes": "2026-11",
+        "mes_anterior": "2026-10",
+        "dias_comparados": 27,
+        "gasto_actual": 0.0,
+        "gasto_mes_pasado": 0.0,
+        "var_gasto": {
+          "abs": 0.0,
+          "pct": null
+        },
+        "leads_actual": 0,
+        "leads_mes_pasado": 0,
+        "var_leads": {
+          "abs": 0,
+          "pct": null
+        },
+        "cpl_actual": 0.0,
+        "cpl_mes_pasado": 0.0,
+        "var_cpl": {
+          "abs": 0.0,
+          "pct": null
         }
       }
     }
@@ -2703,11 +2778,11 @@
       "fecha": "2026-11-26",
       "scope": "Juntos",
       "leads": 104,
-      "spend": 127.21,
+      "spend": 127.28,
       "cpl_diario": 1.22,
       "promedio_movil_7d": 95.0,
-      "impressions": 35993,
-      "clicks": 905,
+      "impressions": 36019,
+      "clicks": 906,
       "fecha_mes_pasado": "2026-10-26",
       "leads_mes_pasado": 94,
       "var_leads_vs_mes_pasado": {
@@ -2716,29 +2791,29 @@
       },
       "spend_mes_pasado": 226.62,
       "var_spend_vs_mes_pasado": {
-        "abs": -99.41,
-        "pct": -43.9
+        "abs": -99.34,
+        "pct": -43.8
       }
     },
     {
       "fecha": "2026-11-27",
       "scope": "Juntos",
-      "leads": 28,
-      "spend": 34.11,
-      "cpl_diario": 1.22,
-      "promedio_movil_7d": 81.57,
-      "impressions": 8950,
-      "clicks": 224,
+      "leads": 31,
+      "spend": 44.64,
+      "cpl_diario": 1.44,
+      "promedio_movil_7d": 82.0,
+      "impressions": 11591,
+      "clicks": 270,
       "fecha_mes_pasado": "2026-10-27",
       "leads_mes_pasado": 134,
       "var_leads_vs_mes_pasado": {
-        "abs": -106,
-        "pct": -79.1
+        "abs": -103,
+        "pct": -76.9
       },
       "spend_mes_pasado": 274.77,
       "var_spend_vs_mes_pasado": {
-        "abs": -240.66,
-        "pct": -87.6
+        "abs": -230.13,
+        "pct": -83.8
       }
     },
     {
@@ -5205,7 +5280,7 @@
       "spend": 62.36,
       "cpl_diario": 1.78,
       "promedio_movil_7d": 28.43,
-      "impressions": 14643,
+      "impressions": 14646,
       "clicks": 252,
       "fecha_mes_pasado": "2026-10-26",
       "leads_mes_pasado": 65,
@@ -5223,11 +5298,11 @@
       "fecha": "2026-11-27",
       "scope": "Urgentito Talleres",
       "leads": 6,
-      "spend": 16.43,
-      "cpl_diario": 2.74,
+      "spend": 22.18,
+      "cpl_diario": 3.7,
       "promedio_movil_7d": 23.86,
-      "impressions": 3559,
-      "clicks": 52,
+      "impressions": 4786,
+      "clicks": 62,
       "fecha_mes_pasado": "2026-10-27",
       "leads_mes_pasado": 65,
       "var_leads_vs_mes_pasado": {
@@ -5236,8 +5311,8 @@
       },
       "spend_mes_pasado": 204.48,
       "var_spend_vs_mes_pasado": {
-        "abs": -188.05,
-        "pct": -92.0
+        "abs": -182.3,
+        "pct": -89.2
       }
     },
     {
@@ -7701,11 +7776,11 @@
       "fecha": "2026-11-26",
       "scope": "Urgentito Ambato",
       "leads": 69,
-      "spend": 64.85,
+      "spend": 64.92,
       "cpl_diario": 0.94,
       "promedio_movil_7d": 66.57,
-      "impressions": 21350,
-      "clicks": 653,
+      "impressions": 21373,
+      "clicks": 654,
       "fecha_mes_pasado": "2026-10-26",
       "leads_mes_pasado": 29,
       "var_leads_vs_mes_pasado": {
@@ -7714,29 +7789,2528 @@
       },
       "spend_mes_pasado": 52.85,
       "var_spend_vs_mes_pasado": {
-        "abs": 12.0,
-        "pct": 22.7
+        "abs": 12.07,
+        "pct": 22.8
       }
     },
     {
       "fecha": "2026-11-27",
       "scope": "Urgentito Ambato",
-      "leads": 22,
-      "spend": 17.68,
-      "cpl_diario": 0.8,
-      "promedio_movil_7d": 57.71,
-      "impressions": 5391,
-      "clicks": 172,
+      "leads": 25,
+      "spend": 22.46,
+      "cpl_diario": 0.9,
+      "promedio_movil_7d": 58.14,
+      "impressions": 6805,
+      "clicks": 208,
       "fecha_mes_pasado": "2026-10-27",
       "leads_mes_pasado": 69,
       "var_leads_vs_mes_pasado": {
-        "abs": -47,
-        "pct": -68.1
+        "abs": -44,
+        "pct": -63.8
       },
       "spend_mes_pasado": 70.29,
       "var_spend_vs_mes_pasado": {
-        "abs": -52.61,
-        "pct": -74.8
+        "abs": -47.83,
+        "pct": -68.0
+      }
+    },
+    {
+      "fecha": "2026-08-01",
+      "scope": "Urgentito Ibarra",
+      "leads": 0,
+      "spend": 0.0,
+      "cpl_diario": 0.0,
+      "promedio_movil_7d": 0.0,
+      "impressions": 0,
+      "clicks": 0,
+      "fecha_mes_pasado": "2026-07-01",
+      "leads_mes_pasado": 0,
+      "var_leads_vs_mes_pasado": {
+        "abs": 0,
+        "pct": null
+      },
+      "spend_mes_pasado": 0.0,
+      "var_spend_vs_mes_pasado": {
+        "abs": 0.0,
+        "pct": null
+      }
+    },
+    {
+      "fecha": "2026-08-02",
+      "scope": "Urgentito Ibarra",
+      "leads": 0,
+      "spend": 0.0,
+      "cpl_diario": 0.0,
+      "promedio_movil_7d": 0.0,
+      "impressions": 0,
+      "clicks": 0,
+      "fecha_mes_pasado": "2026-07-02",
+      "leads_mes_pasado": 0,
+      "var_leads_vs_mes_pasado": {
+        "abs": 0,
+        "pct": null
+      },
+      "spend_mes_pasado": 0.0,
+      "var_spend_vs_mes_pasado": {
+        "abs": 0.0,
+        "pct": null
+      }
+    },
+    {
+      "fecha": "2026-08-03",
+      "scope": "Urgentito Ibarra",
+      "leads": 0,
+      "spend": 0.0,
+      "cpl_diario": 0.0,
+      "promedio_movil_7d": 0.0,
+      "impressions": 0,
+      "clicks": 0,
+      "fecha_mes_pasado": "2026-07-03",
+      "leads_mes_pasado": 0,
+      "var_leads_vs_mes_pasado": {
+        "abs": 0,
+        "pct": null
+      },
+      "spend_mes_pasado": 0.0,
+      "var_spend_vs_mes_pasado": {
+        "abs": 0.0,
+        "pct": null
+      }
+    },
+    {
+      "fecha": "2026-08-04",
+      "scope": "Urgentito Ibarra",
+      "leads": 0,
+      "spend": 0.0,
+      "cpl_diario": 0.0,
+      "promedio_movil_7d": 0.0,
+      "impressions": 0,
+      "clicks": 0,
+      "fecha_mes_pasado": "2026-07-04",
+      "leads_mes_pasado": 0,
+      "var_leads_vs_mes_pasado": {
+        "abs": 0,
+        "pct": null
+      },
+      "spend_mes_pasado": 0.0,
+      "var_spend_vs_mes_pasado": {
+        "abs": 0.0,
+        "pct": null
+      }
+    },
+    {
+      "fecha": "2026-08-05",
+      "scope": "Urgentito Ibarra",
+      "leads": 0,
+      "spend": 0.0,
+      "cpl_diario": 0.0,
+      "promedio_movil_7d": 0.0,
+      "impressions": 0,
+      "clicks": 0,
+      "fecha_mes_pasado": "2026-07-05",
+      "leads_mes_pasado": 0,
+      "var_leads_vs_mes_pasado": {
+        "abs": 0,
+        "pct": null
+      },
+      "spend_mes_pasado": 0.0,
+      "var_spend_vs_mes_pasado": {
+        "abs": 0.0,
+        "pct": null
+      }
+    },
+    {
+      "fecha": "2026-08-06",
+      "scope": "Urgentito Ibarra",
+      "leads": 0,
+      "spend": 0.0,
+      "cpl_diario": 0.0,
+      "promedio_movil_7d": 0.0,
+      "impressions": 0,
+      "clicks": 0,
+      "fecha_mes_pasado": "2026-07-06",
+      "leads_mes_pasado": 0,
+      "var_leads_vs_mes_pasado": {
+        "abs": 0,
+        "pct": null
+      },
+      "spend_mes_pasado": 0.0,
+      "var_spend_vs_mes_pasado": {
+        "abs": 0.0,
+        "pct": null
+      }
+    },
+    {
+      "fecha": "2026-08-07",
+      "scope": "Urgentito Ibarra",
+      "leads": 0,
+      "spend": 0.0,
+      "cpl_diario": 0.0,
+      "promedio_movil_7d": 0.0,
+      "impressions": 0,
+      "clicks": 0,
+      "fecha_mes_pasado": "2026-07-07",
+      "leads_mes_pasado": 0,
+      "var_leads_vs_mes_pasado": {
+        "abs": 0,
+        "pct": null
+      },
+      "spend_mes_pasado": 0.0,
+      "var_spend_vs_mes_pasado": {
+        "abs": 0.0,
+        "pct": null
+      }
+    },
+    {
+      "fecha": "2026-08-08",
+      "scope": "Urgentito Ibarra",
+      "leads": 0,
+      "spend": 0.0,
+      "cpl_diario": 0.0,
+      "promedio_movil_7d": 0.0,
+      "impressions": 0,
+      "clicks": 0,
+      "fecha_mes_pasado": "2026-07-08",
+      "leads_mes_pasado": 0,
+      "var_leads_vs_mes_pasado": {
+        "abs": 0,
+        "pct": null
+      },
+      "spend_mes_pasado": 0.0,
+      "var_spend_vs_mes_pasado": {
+        "abs": 0.0,
+        "pct": null
+      }
+    },
+    {
+      "fecha": "2026-08-09",
+      "scope": "Urgentito Ibarra",
+      "leads": 0,
+      "spend": 0.0,
+      "cpl_diario": 0.0,
+      "promedio_movil_7d": 0.0,
+      "impressions": 0,
+      "clicks": 0,
+      "fecha_mes_pasado": "2026-07-09",
+      "leads_mes_pasado": 0,
+      "var_leads_vs_mes_pasado": {
+        "abs": 0,
+        "pct": null
+      },
+      "spend_mes_pasado": 0.0,
+      "var_spend_vs_mes_pasado": {
+        "abs": 0.0,
+        "pct": null
+      }
+    },
+    {
+      "fecha": "2026-08-10",
+      "scope": "Urgentito Ibarra",
+      "leads": 0,
+      "spend": 0.0,
+      "cpl_diario": 0.0,
+      "promedio_movil_7d": 0.0,
+      "impressions": 0,
+      "clicks": 0,
+      "fecha_mes_pasado": "2026-07-10",
+      "leads_mes_pasado": 0,
+      "var_leads_vs_mes_pasado": {
+        "abs": 0,
+        "pct": null
+      },
+      "spend_mes_pasado": 0.0,
+      "var_spend_vs_mes_pasado": {
+        "abs": 0.0,
+        "pct": null
+      }
+    },
+    {
+      "fecha": "2026-08-11",
+      "scope": "Urgentito Ibarra",
+      "leads": 0,
+      "spend": 0.0,
+      "cpl_diario": 0.0,
+      "promedio_movil_7d": 0.0,
+      "impressions": 0,
+      "clicks": 0,
+      "fecha_mes_pasado": "2026-07-11",
+      "leads_mes_pasado": 0,
+      "var_leads_vs_mes_pasado": {
+        "abs": 0,
+        "pct": null
+      },
+      "spend_mes_pasado": 0.0,
+      "var_spend_vs_mes_pasado": {
+        "abs": 0.0,
+        "pct": null
+      }
+    },
+    {
+      "fecha": "2026-08-12",
+      "scope": "Urgentito Ibarra",
+      "leads": 0,
+      "spend": 0.0,
+      "cpl_diario": 0.0,
+      "promedio_movil_7d": 0.0,
+      "impressions": 0,
+      "clicks": 0,
+      "fecha_mes_pasado": "2026-07-12",
+      "leads_mes_pasado": 0,
+      "var_leads_vs_mes_pasado": {
+        "abs": 0,
+        "pct": null
+      },
+      "spend_mes_pasado": 0.0,
+      "var_spend_vs_mes_pasado": {
+        "abs": 0.0,
+        "pct": null
+      }
+    },
+    {
+      "fecha": "2026-08-13",
+      "scope": "Urgentito Ibarra",
+      "leads": 0,
+      "spend": 0.0,
+      "cpl_diario": 0.0,
+      "promedio_movil_7d": 0.0,
+      "impressions": 0,
+      "clicks": 0,
+      "fecha_mes_pasado": "2026-07-13",
+      "leads_mes_pasado": 0,
+      "var_leads_vs_mes_pasado": {
+        "abs": 0,
+        "pct": null
+      },
+      "spend_mes_pasado": 0.0,
+      "var_spend_vs_mes_pasado": {
+        "abs": 0.0,
+        "pct": null
+      }
+    },
+    {
+      "fecha": "2026-08-14",
+      "scope": "Urgentito Ibarra",
+      "leads": 0,
+      "spend": 0.0,
+      "cpl_diario": 0.0,
+      "promedio_movil_7d": 0.0,
+      "impressions": 0,
+      "clicks": 0,
+      "fecha_mes_pasado": "2026-07-14",
+      "leads_mes_pasado": 0,
+      "var_leads_vs_mes_pasado": {
+        "abs": 0,
+        "pct": null
+      },
+      "spend_mes_pasado": 0.0,
+      "var_spend_vs_mes_pasado": {
+        "abs": 0.0,
+        "pct": null
+      }
+    },
+    {
+      "fecha": "2026-08-15",
+      "scope": "Urgentito Ibarra",
+      "leads": 0,
+      "spend": 0.0,
+      "cpl_diario": 0.0,
+      "promedio_movil_7d": 0.0,
+      "impressions": 0,
+      "clicks": 0,
+      "fecha_mes_pasado": "2026-07-15",
+      "leads_mes_pasado": 0,
+      "var_leads_vs_mes_pasado": {
+        "abs": 0,
+        "pct": null
+      },
+      "spend_mes_pasado": 0.0,
+      "var_spend_vs_mes_pasado": {
+        "abs": 0.0,
+        "pct": null
+      }
+    },
+    {
+      "fecha": "2026-08-16",
+      "scope": "Urgentito Ibarra",
+      "leads": 0,
+      "spend": 0.0,
+      "cpl_diario": 0.0,
+      "promedio_movil_7d": 0.0,
+      "impressions": 0,
+      "clicks": 0,
+      "fecha_mes_pasado": "2026-07-16",
+      "leads_mes_pasado": 0,
+      "var_leads_vs_mes_pasado": {
+        "abs": 0,
+        "pct": null
+      },
+      "spend_mes_pasado": 0.0,
+      "var_spend_vs_mes_pasado": {
+        "abs": 0.0,
+        "pct": null
+      }
+    },
+    {
+      "fecha": "2026-08-17",
+      "scope": "Urgentito Ibarra",
+      "leads": 0,
+      "spend": 0.0,
+      "cpl_diario": 0.0,
+      "promedio_movil_7d": 0.0,
+      "impressions": 0,
+      "clicks": 0,
+      "fecha_mes_pasado": "2026-07-17",
+      "leads_mes_pasado": 0,
+      "var_leads_vs_mes_pasado": {
+        "abs": 0,
+        "pct": null
+      },
+      "spend_mes_pasado": 0.0,
+      "var_spend_vs_mes_pasado": {
+        "abs": 0.0,
+        "pct": null
+      }
+    },
+    {
+      "fecha": "2026-08-18",
+      "scope": "Urgentito Ibarra",
+      "leads": 0,
+      "spend": 0.0,
+      "cpl_diario": 0.0,
+      "promedio_movil_7d": 0.0,
+      "impressions": 0,
+      "clicks": 0,
+      "fecha_mes_pasado": "2026-07-18",
+      "leads_mes_pasado": 0,
+      "var_leads_vs_mes_pasado": {
+        "abs": 0,
+        "pct": null
+      },
+      "spend_mes_pasado": 0.0,
+      "var_spend_vs_mes_pasado": {
+        "abs": 0.0,
+        "pct": null
+      }
+    },
+    {
+      "fecha": "2026-08-19",
+      "scope": "Urgentito Ibarra",
+      "leads": 0,
+      "spend": 0.0,
+      "cpl_diario": 0.0,
+      "promedio_movil_7d": 0.0,
+      "impressions": 0,
+      "clicks": 0,
+      "fecha_mes_pasado": "2026-07-19",
+      "leads_mes_pasado": 0,
+      "var_leads_vs_mes_pasado": {
+        "abs": 0,
+        "pct": null
+      },
+      "spend_mes_pasado": 0.0,
+      "var_spend_vs_mes_pasado": {
+        "abs": 0.0,
+        "pct": null
+      }
+    },
+    {
+      "fecha": "2026-08-20",
+      "scope": "Urgentito Ibarra",
+      "leads": 0,
+      "spend": 0.0,
+      "cpl_diario": 0.0,
+      "promedio_movil_7d": 0.0,
+      "impressions": 0,
+      "clicks": 0,
+      "fecha_mes_pasado": "2026-07-20",
+      "leads_mes_pasado": 0,
+      "var_leads_vs_mes_pasado": {
+        "abs": 0,
+        "pct": null
+      },
+      "spend_mes_pasado": 0.0,
+      "var_spend_vs_mes_pasado": {
+        "abs": 0.0,
+        "pct": null
+      }
+    },
+    {
+      "fecha": "2026-08-21",
+      "scope": "Urgentito Ibarra",
+      "leads": 0,
+      "spend": 0.0,
+      "cpl_diario": 0.0,
+      "promedio_movil_7d": 0.0,
+      "impressions": 0,
+      "clicks": 0,
+      "fecha_mes_pasado": "2026-07-21",
+      "leads_mes_pasado": 0,
+      "var_leads_vs_mes_pasado": {
+        "abs": 0,
+        "pct": null
+      },
+      "spend_mes_pasado": 0.0,
+      "var_spend_vs_mes_pasado": {
+        "abs": 0.0,
+        "pct": null
+      }
+    },
+    {
+      "fecha": "2026-08-22",
+      "scope": "Urgentito Ibarra",
+      "leads": 0,
+      "spend": 0.0,
+      "cpl_diario": 0.0,
+      "promedio_movil_7d": 0.0,
+      "impressions": 0,
+      "clicks": 0,
+      "fecha_mes_pasado": "2026-07-22",
+      "leads_mes_pasado": 0,
+      "var_leads_vs_mes_pasado": {
+        "abs": 0,
+        "pct": null
+      },
+      "spend_mes_pasado": 0.0,
+      "var_spend_vs_mes_pasado": {
+        "abs": 0.0,
+        "pct": null
+      }
+    },
+    {
+      "fecha": "2026-08-23",
+      "scope": "Urgentito Ibarra",
+      "leads": 0,
+      "spend": 0.0,
+      "cpl_diario": 0.0,
+      "promedio_movil_7d": 0.0,
+      "impressions": 0,
+      "clicks": 0,
+      "fecha_mes_pasado": "2026-07-23",
+      "leads_mes_pasado": 0,
+      "var_leads_vs_mes_pasado": {
+        "abs": 0,
+        "pct": null
+      },
+      "spend_mes_pasado": 0.0,
+      "var_spend_vs_mes_pasado": {
+        "abs": 0.0,
+        "pct": null
+      }
+    },
+    {
+      "fecha": "2026-08-24",
+      "scope": "Urgentito Ibarra",
+      "leads": 0,
+      "spend": 0.0,
+      "cpl_diario": 0.0,
+      "promedio_movil_7d": 0.0,
+      "impressions": 0,
+      "clicks": 0,
+      "fecha_mes_pasado": "2026-07-24",
+      "leads_mes_pasado": 0,
+      "var_leads_vs_mes_pasado": {
+        "abs": 0,
+        "pct": null
+      },
+      "spend_mes_pasado": 0.0,
+      "var_spend_vs_mes_pasado": {
+        "abs": 0.0,
+        "pct": null
+      }
+    },
+    {
+      "fecha": "2026-08-25",
+      "scope": "Urgentito Ibarra",
+      "leads": 0,
+      "spend": 0.0,
+      "cpl_diario": 0.0,
+      "promedio_movil_7d": 0.0,
+      "impressions": 0,
+      "clicks": 0,
+      "fecha_mes_pasado": "2026-07-25",
+      "leads_mes_pasado": 0,
+      "var_leads_vs_mes_pasado": {
+        "abs": 0,
+        "pct": null
+      },
+      "spend_mes_pasado": 0.0,
+      "var_spend_vs_mes_pasado": {
+        "abs": 0.0,
+        "pct": null
+      }
+    },
+    {
+      "fecha": "2026-08-26",
+      "scope": "Urgentito Ibarra",
+      "leads": 0,
+      "spend": 0.0,
+      "cpl_diario": 0.0,
+      "promedio_movil_7d": 0.0,
+      "impressions": 0,
+      "clicks": 0,
+      "fecha_mes_pasado": "2026-07-26",
+      "leads_mes_pasado": 0,
+      "var_leads_vs_mes_pasado": {
+        "abs": 0,
+        "pct": null
+      },
+      "spend_mes_pasado": 0.0,
+      "var_spend_vs_mes_pasado": {
+        "abs": 0.0,
+        "pct": null
+      }
+    },
+    {
+      "fecha": "2026-08-27",
+      "scope": "Urgentito Ibarra",
+      "leads": 0,
+      "spend": 0.0,
+      "cpl_diario": 0.0,
+      "promedio_movil_7d": 0.0,
+      "impressions": 0,
+      "clicks": 0,
+      "fecha_mes_pasado": "2026-07-27",
+      "leads_mes_pasado": 0,
+      "var_leads_vs_mes_pasado": {
+        "abs": 0,
+        "pct": null
+      },
+      "spend_mes_pasado": 0.0,
+      "var_spend_vs_mes_pasado": {
+        "abs": 0.0,
+        "pct": null
+      }
+    },
+    {
+      "fecha": "2026-08-28",
+      "scope": "Urgentito Ibarra",
+      "leads": 0,
+      "spend": 0.0,
+      "cpl_diario": 0.0,
+      "promedio_movil_7d": 0.0,
+      "impressions": 0,
+      "clicks": 0,
+      "fecha_mes_pasado": "2026-07-28",
+      "leads_mes_pasado": 0,
+      "var_leads_vs_mes_pasado": {
+        "abs": 0,
+        "pct": null
+      },
+      "spend_mes_pasado": 0.0,
+      "var_spend_vs_mes_pasado": {
+        "abs": 0.0,
+        "pct": null
+      }
+    },
+    {
+      "fecha": "2026-08-29",
+      "scope": "Urgentito Ibarra",
+      "leads": 0,
+      "spend": 0.0,
+      "cpl_diario": 0.0,
+      "promedio_movil_7d": 0.0,
+      "impressions": 0,
+      "clicks": 0,
+      "fecha_mes_pasado": "2026-07-29",
+      "leads_mes_pasado": 0,
+      "var_leads_vs_mes_pasado": {
+        "abs": 0,
+        "pct": null
+      },
+      "spend_mes_pasado": 0.0,
+      "var_spend_vs_mes_pasado": {
+        "abs": 0.0,
+        "pct": null
+      }
+    },
+    {
+      "fecha": "2026-08-30",
+      "scope": "Urgentito Ibarra",
+      "leads": 0,
+      "spend": 0.0,
+      "cpl_diario": 0.0,
+      "promedio_movil_7d": 0.0,
+      "impressions": 0,
+      "clicks": 0,
+      "fecha_mes_pasado": "2026-07-30",
+      "leads_mes_pasado": 0,
+      "var_leads_vs_mes_pasado": {
+        "abs": 0,
+        "pct": null
+      },
+      "spend_mes_pasado": 0.0,
+      "var_spend_vs_mes_pasado": {
+        "abs": 0.0,
+        "pct": null
+      }
+    },
+    {
+      "fecha": "2026-08-31",
+      "scope": "Urgentito Ibarra",
+      "leads": 0,
+      "spend": 0.0,
+      "cpl_diario": 0.0,
+      "promedio_movil_7d": 0.0,
+      "impressions": 0,
+      "clicks": 0,
+      "fecha_mes_pasado": "2026-07-31",
+      "leads_mes_pasado": 0,
+      "var_leads_vs_mes_pasado": {
+        "abs": 0,
+        "pct": null
+      },
+      "spend_mes_pasado": 0.0,
+      "var_spend_vs_mes_pasado": {
+        "abs": 0.0,
+        "pct": null
+      }
+    },
+    {
+      "fecha": "2026-09-01",
+      "scope": "Urgentito Ibarra",
+      "leads": 0,
+      "spend": 0.0,
+      "cpl_diario": 0.0,
+      "promedio_movil_7d": 0.0,
+      "impressions": 0,
+      "clicks": 0,
+      "fecha_mes_pasado": "2026-08-01",
+      "leads_mes_pasado": 0,
+      "var_leads_vs_mes_pasado": {
+        "abs": 0,
+        "pct": null
+      },
+      "spend_mes_pasado": 0.0,
+      "var_spend_vs_mes_pasado": {
+        "abs": 0.0,
+        "pct": null
+      }
+    },
+    {
+      "fecha": "2026-09-02",
+      "scope": "Urgentito Ibarra",
+      "leads": 0,
+      "spend": 0.0,
+      "cpl_diario": 0.0,
+      "promedio_movil_7d": 0.0,
+      "impressions": 0,
+      "clicks": 0,
+      "fecha_mes_pasado": "2026-08-02",
+      "leads_mes_pasado": 0,
+      "var_leads_vs_mes_pasado": {
+        "abs": 0,
+        "pct": null
+      },
+      "spend_mes_pasado": 0.0,
+      "var_spend_vs_mes_pasado": {
+        "abs": 0.0,
+        "pct": null
+      }
+    },
+    {
+      "fecha": "2026-09-03",
+      "scope": "Urgentito Ibarra",
+      "leads": 0,
+      "spend": 0.0,
+      "cpl_diario": 0.0,
+      "promedio_movil_7d": 0.0,
+      "impressions": 0,
+      "clicks": 0,
+      "fecha_mes_pasado": "2026-08-03",
+      "leads_mes_pasado": 0,
+      "var_leads_vs_mes_pasado": {
+        "abs": 0,
+        "pct": null
+      },
+      "spend_mes_pasado": 0.0,
+      "var_spend_vs_mes_pasado": {
+        "abs": 0.0,
+        "pct": null
+      }
+    },
+    {
+      "fecha": "2026-09-04",
+      "scope": "Urgentito Ibarra",
+      "leads": 0,
+      "spend": 0.0,
+      "cpl_diario": 0.0,
+      "promedio_movil_7d": 0.0,
+      "impressions": 0,
+      "clicks": 0,
+      "fecha_mes_pasado": "2026-08-04",
+      "leads_mes_pasado": 0,
+      "var_leads_vs_mes_pasado": {
+        "abs": 0,
+        "pct": null
+      },
+      "spend_mes_pasado": 0.0,
+      "var_spend_vs_mes_pasado": {
+        "abs": 0.0,
+        "pct": null
+      }
+    },
+    {
+      "fecha": "2026-09-05",
+      "scope": "Urgentito Ibarra",
+      "leads": 0,
+      "spend": 0.0,
+      "cpl_diario": 0.0,
+      "promedio_movil_7d": 0.0,
+      "impressions": 0,
+      "clicks": 0,
+      "fecha_mes_pasado": "2026-08-05",
+      "leads_mes_pasado": 0,
+      "var_leads_vs_mes_pasado": {
+        "abs": 0,
+        "pct": null
+      },
+      "spend_mes_pasado": 0.0,
+      "var_spend_vs_mes_pasado": {
+        "abs": 0.0,
+        "pct": null
+      }
+    },
+    {
+      "fecha": "2026-09-06",
+      "scope": "Urgentito Ibarra",
+      "leads": 0,
+      "spend": 0.0,
+      "cpl_diario": 0.0,
+      "promedio_movil_7d": 0.0,
+      "impressions": 0,
+      "clicks": 0,
+      "fecha_mes_pasado": "2026-08-06",
+      "leads_mes_pasado": 0,
+      "var_leads_vs_mes_pasado": {
+        "abs": 0,
+        "pct": null
+      },
+      "spend_mes_pasado": 0.0,
+      "var_spend_vs_mes_pasado": {
+        "abs": 0.0,
+        "pct": null
+      }
+    },
+    {
+      "fecha": "2026-09-07",
+      "scope": "Urgentito Ibarra",
+      "leads": 0,
+      "spend": 0.0,
+      "cpl_diario": 0.0,
+      "promedio_movil_7d": 0.0,
+      "impressions": 0,
+      "clicks": 0,
+      "fecha_mes_pasado": "2026-08-07",
+      "leads_mes_pasado": 0,
+      "var_leads_vs_mes_pasado": {
+        "abs": 0,
+        "pct": null
+      },
+      "spend_mes_pasado": 0.0,
+      "var_spend_vs_mes_pasado": {
+        "abs": 0.0,
+        "pct": null
+      }
+    },
+    {
+      "fecha": "2026-09-08",
+      "scope": "Urgentito Ibarra",
+      "leads": 0,
+      "spend": 0.0,
+      "cpl_diario": 0.0,
+      "promedio_movil_7d": 0.0,
+      "impressions": 0,
+      "clicks": 0,
+      "fecha_mes_pasado": "2026-08-08",
+      "leads_mes_pasado": 0,
+      "var_leads_vs_mes_pasado": {
+        "abs": 0,
+        "pct": null
+      },
+      "spend_mes_pasado": 0.0,
+      "var_spend_vs_mes_pasado": {
+        "abs": 0.0,
+        "pct": null
+      }
+    },
+    {
+      "fecha": "2026-09-09",
+      "scope": "Urgentito Ibarra",
+      "leads": 0,
+      "spend": 0.0,
+      "cpl_diario": 0.0,
+      "promedio_movil_7d": 0.0,
+      "impressions": 0,
+      "clicks": 0,
+      "fecha_mes_pasado": "2026-08-09",
+      "leads_mes_pasado": 0,
+      "var_leads_vs_mes_pasado": {
+        "abs": 0,
+        "pct": null
+      },
+      "spend_mes_pasado": 0.0,
+      "var_spend_vs_mes_pasado": {
+        "abs": 0.0,
+        "pct": null
+      }
+    },
+    {
+      "fecha": "2026-09-10",
+      "scope": "Urgentito Ibarra",
+      "leads": 0,
+      "spend": 0.0,
+      "cpl_diario": 0.0,
+      "promedio_movil_7d": 0.0,
+      "impressions": 0,
+      "clicks": 0,
+      "fecha_mes_pasado": "2026-08-10",
+      "leads_mes_pasado": 0,
+      "var_leads_vs_mes_pasado": {
+        "abs": 0,
+        "pct": null
+      },
+      "spend_mes_pasado": 0.0,
+      "var_spend_vs_mes_pasado": {
+        "abs": 0.0,
+        "pct": null
+      }
+    },
+    {
+      "fecha": "2026-09-11",
+      "scope": "Urgentito Ibarra",
+      "leads": 0,
+      "spend": 0.0,
+      "cpl_diario": 0.0,
+      "promedio_movil_7d": 0.0,
+      "impressions": 0,
+      "clicks": 0,
+      "fecha_mes_pasado": "2026-08-11",
+      "leads_mes_pasado": 0,
+      "var_leads_vs_mes_pasado": {
+        "abs": 0,
+        "pct": null
+      },
+      "spend_mes_pasado": 0.0,
+      "var_spend_vs_mes_pasado": {
+        "abs": 0.0,
+        "pct": null
+      }
+    },
+    {
+      "fecha": "2026-09-12",
+      "scope": "Urgentito Ibarra",
+      "leads": 0,
+      "spend": 0.0,
+      "cpl_diario": 0.0,
+      "promedio_movil_7d": 0.0,
+      "impressions": 0,
+      "clicks": 0,
+      "fecha_mes_pasado": "2026-08-12",
+      "leads_mes_pasado": 0,
+      "var_leads_vs_mes_pasado": {
+        "abs": 0,
+        "pct": null
+      },
+      "spend_mes_pasado": 0.0,
+      "var_spend_vs_mes_pasado": {
+        "abs": 0.0,
+        "pct": null
+      }
+    },
+    {
+      "fecha": "2026-09-13",
+      "scope": "Urgentito Ibarra",
+      "leads": 0,
+      "spend": 0.0,
+      "cpl_diario": 0.0,
+      "promedio_movil_7d": 0.0,
+      "impressions": 0,
+      "clicks": 0,
+      "fecha_mes_pasado": "2026-08-13",
+      "leads_mes_pasado": 0,
+      "var_leads_vs_mes_pasado": {
+        "abs": 0,
+        "pct": null
+      },
+      "spend_mes_pasado": 0.0,
+      "var_spend_vs_mes_pasado": {
+        "abs": 0.0,
+        "pct": null
+      }
+    },
+    {
+      "fecha": "2026-09-14",
+      "scope": "Urgentito Ibarra",
+      "leads": 0,
+      "spend": 0.0,
+      "cpl_diario": 0.0,
+      "promedio_movil_7d": 0.0,
+      "impressions": 0,
+      "clicks": 0,
+      "fecha_mes_pasado": "2026-08-14",
+      "leads_mes_pasado": 0,
+      "var_leads_vs_mes_pasado": {
+        "abs": 0,
+        "pct": null
+      },
+      "spend_mes_pasado": 0.0,
+      "var_spend_vs_mes_pasado": {
+        "abs": 0.0,
+        "pct": null
+      }
+    },
+    {
+      "fecha": "2026-09-15",
+      "scope": "Urgentito Ibarra",
+      "leads": 0,
+      "spend": 0.0,
+      "cpl_diario": 0.0,
+      "promedio_movil_7d": 0.0,
+      "impressions": 0,
+      "clicks": 0,
+      "fecha_mes_pasado": "2026-08-15",
+      "leads_mes_pasado": 0,
+      "var_leads_vs_mes_pasado": {
+        "abs": 0,
+        "pct": null
+      },
+      "spend_mes_pasado": 0.0,
+      "var_spend_vs_mes_pasado": {
+        "abs": 0.0,
+        "pct": null
+      }
+    },
+    {
+      "fecha": "2026-09-16",
+      "scope": "Urgentito Ibarra",
+      "leads": 0,
+      "spend": 0.0,
+      "cpl_diario": 0.0,
+      "promedio_movil_7d": 0.0,
+      "impressions": 0,
+      "clicks": 0,
+      "fecha_mes_pasado": "2026-08-16",
+      "leads_mes_pasado": 0,
+      "var_leads_vs_mes_pasado": {
+        "abs": 0,
+        "pct": null
+      },
+      "spend_mes_pasado": 0.0,
+      "var_spend_vs_mes_pasado": {
+        "abs": 0.0,
+        "pct": null
+      }
+    },
+    {
+      "fecha": "2026-09-17",
+      "scope": "Urgentito Ibarra",
+      "leads": 0,
+      "spend": 0.0,
+      "cpl_diario": 0.0,
+      "promedio_movil_7d": 0.0,
+      "impressions": 0,
+      "clicks": 0,
+      "fecha_mes_pasado": "2026-08-17",
+      "leads_mes_pasado": 0,
+      "var_leads_vs_mes_pasado": {
+        "abs": 0,
+        "pct": null
+      },
+      "spend_mes_pasado": 0.0,
+      "var_spend_vs_mes_pasado": {
+        "abs": 0.0,
+        "pct": null
+      }
+    },
+    {
+      "fecha": "2026-09-18",
+      "scope": "Urgentito Ibarra",
+      "leads": 0,
+      "spend": 0.0,
+      "cpl_diario": 0.0,
+      "promedio_movil_7d": 0.0,
+      "impressions": 0,
+      "clicks": 0,
+      "fecha_mes_pasado": "2026-08-18",
+      "leads_mes_pasado": 0,
+      "var_leads_vs_mes_pasado": {
+        "abs": 0,
+        "pct": null
+      },
+      "spend_mes_pasado": 0.0,
+      "var_spend_vs_mes_pasado": {
+        "abs": 0.0,
+        "pct": null
+      }
+    },
+    {
+      "fecha": "2026-09-19",
+      "scope": "Urgentito Ibarra",
+      "leads": 0,
+      "spend": 0.0,
+      "cpl_diario": 0.0,
+      "promedio_movil_7d": 0.0,
+      "impressions": 0,
+      "clicks": 0,
+      "fecha_mes_pasado": "2026-08-19",
+      "leads_mes_pasado": 0,
+      "var_leads_vs_mes_pasado": {
+        "abs": 0,
+        "pct": null
+      },
+      "spend_mes_pasado": 0.0,
+      "var_spend_vs_mes_pasado": {
+        "abs": 0.0,
+        "pct": null
+      }
+    },
+    {
+      "fecha": "2026-09-20",
+      "scope": "Urgentito Ibarra",
+      "leads": 0,
+      "spend": 0.0,
+      "cpl_diario": 0.0,
+      "promedio_movil_7d": 0.0,
+      "impressions": 0,
+      "clicks": 0,
+      "fecha_mes_pasado": "2026-08-20",
+      "leads_mes_pasado": 0,
+      "var_leads_vs_mes_pasado": {
+        "abs": 0,
+        "pct": null
+      },
+      "spend_mes_pasado": 0.0,
+      "var_spend_vs_mes_pasado": {
+        "abs": 0.0,
+        "pct": null
+      }
+    },
+    {
+      "fecha": "2026-09-21",
+      "scope": "Urgentito Ibarra",
+      "leads": 0,
+      "spend": 0.0,
+      "cpl_diario": 0.0,
+      "promedio_movil_7d": 0.0,
+      "impressions": 0,
+      "clicks": 0,
+      "fecha_mes_pasado": "2026-08-21",
+      "leads_mes_pasado": 0,
+      "var_leads_vs_mes_pasado": {
+        "abs": 0,
+        "pct": null
+      },
+      "spend_mes_pasado": 0.0,
+      "var_spend_vs_mes_pasado": {
+        "abs": 0.0,
+        "pct": null
+      }
+    },
+    {
+      "fecha": "2026-09-22",
+      "scope": "Urgentito Ibarra",
+      "leads": 0,
+      "spend": 0.0,
+      "cpl_diario": 0.0,
+      "promedio_movil_7d": 0.0,
+      "impressions": 0,
+      "clicks": 0,
+      "fecha_mes_pasado": "2026-08-22",
+      "leads_mes_pasado": 0,
+      "var_leads_vs_mes_pasado": {
+        "abs": 0,
+        "pct": null
+      },
+      "spend_mes_pasado": 0.0,
+      "var_spend_vs_mes_pasado": {
+        "abs": 0.0,
+        "pct": null
+      }
+    },
+    {
+      "fecha": "2026-09-23",
+      "scope": "Urgentito Ibarra",
+      "leads": 0,
+      "spend": 0.0,
+      "cpl_diario": 0.0,
+      "promedio_movil_7d": 0.0,
+      "impressions": 0,
+      "clicks": 0,
+      "fecha_mes_pasado": "2026-08-23",
+      "leads_mes_pasado": 0,
+      "var_leads_vs_mes_pasado": {
+        "abs": 0,
+        "pct": null
+      },
+      "spend_mes_pasado": 0.0,
+      "var_spend_vs_mes_pasado": {
+        "abs": 0.0,
+        "pct": null
+      }
+    },
+    {
+      "fecha": "2026-09-24",
+      "scope": "Urgentito Ibarra",
+      "leads": 0,
+      "spend": 0.0,
+      "cpl_diario": 0.0,
+      "promedio_movil_7d": 0.0,
+      "impressions": 0,
+      "clicks": 0,
+      "fecha_mes_pasado": "2026-08-24",
+      "leads_mes_pasado": 0,
+      "var_leads_vs_mes_pasado": {
+        "abs": 0,
+        "pct": null
+      },
+      "spend_mes_pasado": 0.0,
+      "var_spend_vs_mes_pasado": {
+        "abs": 0.0,
+        "pct": null
+      }
+    },
+    {
+      "fecha": "2026-09-25",
+      "scope": "Urgentito Ibarra",
+      "leads": 0,
+      "spend": 0.0,
+      "cpl_diario": 0.0,
+      "promedio_movil_7d": 0.0,
+      "impressions": 0,
+      "clicks": 0,
+      "fecha_mes_pasado": "2026-08-25",
+      "leads_mes_pasado": 0,
+      "var_leads_vs_mes_pasado": {
+        "abs": 0,
+        "pct": null
+      },
+      "spend_mes_pasado": 0.0,
+      "var_spend_vs_mes_pasado": {
+        "abs": 0.0,
+        "pct": null
+      }
+    },
+    {
+      "fecha": "2026-09-26",
+      "scope": "Urgentito Ibarra",
+      "leads": 0,
+      "spend": 0.0,
+      "cpl_diario": 0.0,
+      "promedio_movil_7d": 0.0,
+      "impressions": 0,
+      "clicks": 0,
+      "fecha_mes_pasado": "2026-08-26",
+      "leads_mes_pasado": 0,
+      "var_leads_vs_mes_pasado": {
+        "abs": 0,
+        "pct": null
+      },
+      "spend_mes_pasado": 0.0,
+      "var_spend_vs_mes_pasado": {
+        "abs": 0.0,
+        "pct": null
+      }
+    },
+    {
+      "fecha": "2026-09-27",
+      "scope": "Urgentito Ibarra",
+      "leads": 0,
+      "spend": 0.0,
+      "cpl_diario": 0.0,
+      "promedio_movil_7d": 0.0,
+      "impressions": 0,
+      "clicks": 0,
+      "fecha_mes_pasado": "2026-08-27",
+      "leads_mes_pasado": 0,
+      "var_leads_vs_mes_pasado": {
+        "abs": 0,
+        "pct": null
+      },
+      "spend_mes_pasado": 0.0,
+      "var_spend_vs_mes_pasado": {
+        "abs": 0.0,
+        "pct": null
+      }
+    },
+    {
+      "fecha": "2026-09-28",
+      "scope": "Urgentito Ibarra",
+      "leads": 0,
+      "spend": 0.0,
+      "cpl_diario": 0.0,
+      "promedio_movil_7d": 0.0,
+      "impressions": 0,
+      "clicks": 0,
+      "fecha_mes_pasado": "2026-08-28",
+      "leads_mes_pasado": 0,
+      "var_leads_vs_mes_pasado": {
+        "abs": 0,
+        "pct": null
+      },
+      "spend_mes_pasado": 0.0,
+      "var_spend_vs_mes_pasado": {
+        "abs": 0.0,
+        "pct": null
+      }
+    },
+    {
+      "fecha": "2026-09-29",
+      "scope": "Urgentito Ibarra",
+      "leads": 0,
+      "spend": 0.0,
+      "cpl_diario": 0.0,
+      "promedio_movil_7d": 0.0,
+      "impressions": 0,
+      "clicks": 0,
+      "fecha_mes_pasado": "2026-08-29",
+      "leads_mes_pasado": 0,
+      "var_leads_vs_mes_pasado": {
+        "abs": 0,
+        "pct": null
+      },
+      "spend_mes_pasado": 0.0,
+      "var_spend_vs_mes_pasado": {
+        "abs": 0.0,
+        "pct": null
+      }
+    },
+    {
+      "fecha": "2026-09-30",
+      "scope": "Urgentito Ibarra",
+      "leads": 0,
+      "spend": 0.0,
+      "cpl_diario": 0.0,
+      "promedio_movil_7d": 0.0,
+      "impressions": 0,
+      "clicks": 0,
+      "fecha_mes_pasado": "2026-08-30",
+      "leads_mes_pasado": 0,
+      "var_leads_vs_mes_pasado": {
+        "abs": 0,
+        "pct": null
+      },
+      "spend_mes_pasado": 0.0,
+      "var_spend_vs_mes_pasado": {
+        "abs": 0.0,
+        "pct": null
+      }
+    },
+    {
+      "fecha": "2026-10-01",
+      "scope": "Urgentito Ibarra",
+      "leads": 0,
+      "spend": 0.0,
+      "cpl_diario": 0.0,
+      "promedio_movil_7d": 0.0,
+      "impressions": 0,
+      "clicks": 0,
+      "fecha_mes_pasado": "2026-09-01",
+      "leads_mes_pasado": 0,
+      "var_leads_vs_mes_pasado": {
+        "abs": 0,
+        "pct": null
+      },
+      "spend_mes_pasado": 0.0,
+      "var_spend_vs_mes_pasado": {
+        "abs": 0.0,
+        "pct": null
+      }
+    },
+    {
+      "fecha": "2026-10-02",
+      "scope": "Urgentito Ibarra",
+      "leads": 0,
+      "spend": 0.0,
+      "cpl_diario": 0.0,
+      "promedio_movil_7d": 0.0,
+      "impressions": 0,
+      "clicks": 0,
+      "fecha_mes_pasado": "2026-09-02",
+      "leads_mes_pasado": 0,
+      "var_leads_vs_mes_pasado": {
+        "abs": 0,
+        "pct": null
+      },
+      "spend_mes_pasado": 0.0,
+      "var_spend_vs_mes_pasado": {
+        "abs": 0.0,
+        "pct": null
+      }
+    },
+    {
+      "fecha": "2026-10-03",
+      "scope": "Urgentito Ibarra",
+      "leads": 0,
+      "spend": 0.0,
+      "cpl_diario": 0.0,
+      "promedio_movil_7d": 0.0,
+      "impressions": 0,
+      "clicks": 0,
+      "fecha_mes_pasado": "2026-09-03",
+      "leads_mes_pasado": 0,
+      "var_leads_vs_mes_pasado": {
+        "abs": 0,
+        "pct": null
+      },
+      "spend_mes_pasado": 0.0,
+      "var_spend_vs_mes_pasado": {
+        "abs": 0.0,
+        "pct": null
+      }
+    },
+    {
+      "fecha": "2026-10-04",
+      "scope": "Urgentito Ibarra",
+      "leads": 0,
+      "spend": 0.0,
+      "cpl_diario": 0.0,
+      "promedio_movil_7d": 0.0,
+      "impressions": 0,
+      "clicks": 0,
+      "fecha_mes_pasado": "2026-09-04",
+      "leads_mes_pasado": 0,
+      "var_leads_vs_mes_pasado": {
+        "abs": 0,
+        "pct": null
+      },
+      "spend_mes_pasado": 0.0,
+      "var_spend_vs_mes_pasado": {
+        "abs": 0.0,
+        "pct": null
+      }
+    },
+    {
+      "fecha": "2026-10-05",
+      "scope": "Urgentito Ibarra",
+      "leads": 0,
+      "spend": 0.0,
+      "cpl_diario": 0.0,
+      "promedio_movil_7d": 0.0,
+      "impressions": 0,
+      "clicks": 0,
+      "fecha_mes_pasado": "2026-09-05",
+      "leads_mes_pasado": 0,
+      "var_leads_vs_mes_pasado": {
+        "abs": 0,
+        "pct": null
+      },
+      "spend_mes_pasado": 0.0,
+      "var_spend_vs_mes_pasado": {
+        "abs": 0.0,
+        "pct": null
+      }
+    },
+    {
+      "fecha": "2026-10-06",
+      "scope": "Urgentito Ibarra",
+      "leads": 0,
+      "spend": 0.0,
+      "cpl_diario": 0.0,
+      "promedio_movil_7d": 0.0,
+      "impressions": 0,
+      "clicks": 0,
+      "fecha_mes_pasado": "2026-09-06",
+      "leads_mes_pasado": 0,
+      "var_leads_vs_mes_pasado": {
+        "abs": 0,
+        "pct": null
+      },
+      "spend_mes_pasado": 0.0,
+      "var_spend_vs_mes_pasado": {
+        "abs": 0.0,
+        "pct": null
+      }
+    },
+    {
+      "fecha": "2026-10-07",
+      "scope": "Urgentito Ibarra",
+      "leads": 0,
+      "spend": 0.0,
+      "cpl_diario": 0.0,
+      "promedio_movil_7d": 0.0,
+      "impressions": 0,
+      "clicks": 0,
+      "fecha_mes_pasado": "2026-09-07",
+      "leads_mes_pasado": 0,
+      "var_leads_vs_mes_pasado": {
+        "abs": 0,
+        "pct": null
+      },
+      "spend_mes_pasado": 0.0,
+      "var_spend_vs_mes_pasado": {
+        "abs": 0.0,
+        "pct": null
+      }
+    },
+    {
+      "fecha": "2026-10-08",
+      "scope": "Urgentito Ibarra",
+      "leads": 0,
+      "spend": 0.0,
+      "cpl_diario": 0.0,
+      "promedio_movil_7d": 0.0,
+      "impressions": 0,
+      "clicks": 0,
+      "fecha_mes_pasado": "2026-09-08",
+      "leads_mes_pasado": 0,
+      "var_leads_vs_mes_pasado": {
+        "abs": 0,
+        "pct": null
+      },
+      "spend_mes_pasado": 0.0,
+      "var_spend_vs_mes_pasado": {
+        "abs": 0.0,
+        "pct": null
+      }
+    },
+    {
+      "fecha": "2026-10-09",
+      "scope": "Urgentito Ibarra",
+      "leads": 0,
+      "spend": 0.0,
+      "cpl_diario": 0.0,
+      "promedio_movil_7d": 0.0,
+      "impressions": 0,
+      "clicks": 0,
+      "fecha_mes_pasado": "2026-09-09",
+      "leads_mes_pasado": 0,
+      "var_leads_vs_mes_pasado": {
+        "abs": 0,
+        "pct": null
+      },
+      "spend_mes_pasado": 0.0,
+      "var_spend_vs_mes_pasado": {
+        "abs": 0.0,
+        "pct": null
+      }
+    },
+    {
+      "fecha": "2026-10-10",
+      "scope": "Urgentito Ibarra",
+      "leads": 0,
+      "spend": 0.0,
+      "cpl_diario": 0.0,
+      "promedio_movil_7d": 0.0,
+      "impressions": 0,
+      "clicks": 0,
+      "fecha_mes_pasado": "2026-09-10",
+      "leads_mes_pasado": 0,
+      "var_leads_vs_mes_pasado": {
+        "abs": 0,
+        "pct": null
+      },
+      "spend_mes_pasado": 0.0,
+      "var_spend_vs_mes_pasado": {
+        "abs": 0.0,
+        "pct": null
+      }
+    },
+    {
+      "fecha": "2026-10-11",
+      "scope": "Urgentito Ibarra",
+      "leads": 0,
+      "spend": 0.0,
+      "cpl_diario": 0.0,
+      "promedio_movil_7d": 0.0,
+      "impressions": 0,
+      "clicks": 0,
+      "fecha_mes_pasado": "2026-09-11",
+      "leads_mes_pasado": 0,
+      "var_leads_vs_mes_pasado": {
+        "abs": 0,
+        "pct": null
+      },
+      "spend_mes_pasado": 0.0,
+      "var_spend_vs_mes_pasado": {
+        "abs": 0.0,
+        "pct": null
+      }
+    },
+    {
+      "fecha": "2026-10-12",
+      "scope": "Urgentito Ibarra",
+      "leads": 0,
+      "spend": 0.0,
+      "cpl_diario": 0.0,
+      "promedio_movil_7d": 0.0,
+      "impressions": 0,
+      "clicks": 0,
+      "fecha_mes_pasado": "2026-09-12",
+      "leads_mes_pasado": 0,
+      "var_leads_vs_mes_pasado": {
+        "abs": 0,
+        "pct": null
+      },
+      "spend_mes_pasado": 0.0,
+      "var_spend_vs_mes_pasado": {
+        "abs": 0.0,
+        "pct": null
+      }
+    },
+    {
+      "fecha": "2026-10-13",
+      "scope": "Urgentito Ibarra",
+      "leads": 0,
+      "spend": 0.0,
+      "cpl_diario": 0.0,
+      "promedio_movil_7d": 0.0,
+      "impressions": 0,
+      "clicks": 0,
+      "fecha_mes_pasado": "2026-09-13",
+      "leads_mes_pasado": 0,
+      "var_leads_vs_mes_pasado": {
+        "abs": 0,
+        "pct": null
+      },
+      "spend_mes_pasado": 0.0,
+      "var_spend_vs_mes_pasado": {
+        "abs": 0.0,
+        "pct": null
+      }
+    },
+    {
+      "fecha": "2026-10-14",
+      "scope": "Urgentito Ibarra",
+      "leads": 0,
+      "spend": 0.0,
+      "cpl_diario": 0.0,
+      "promedio_movil_7d": 0.0,
+      "impressions": 0,
+      "clicks": 0,
+      "fecha_mes_pasado": "2026-09-14",
+      "leads_mes_pasado": 0,
+      "var_leads_vs_mes_pasado": {
+        "abs": 0,
+        "pct": null
+      },
+      "spend_mes_pasado": 0.0,
+      "var_spend_vs_mes_pasado": {
+        "abs": 0.0,
+        "pct": null
+      }
+    },
+    {
+      "fecha": "2026-10-15",
+      "scope": "Urgentito Ibarra",
+      "leads": 0,
+      "spend": 0.0,
+      "cpl_diario": 0.0,
+      "promedio_movil_7d": 0.0,
+      "impressions": 0,
+      "clicks": 0,
+      "fecha_mes_pasado": "2026-09-15",
+      "leads_mes_pasado": 0,
+      "var_leads_vs_mes_pasado": {
+        "abs": 0,
+        "pct": null
+      },
+      "spend_mes_pasado": 0.0,
+      "var_spend_vs_mes_pasado": {
+        "abs": 0.0,
+        "pct": null
+      }
+    },
+    {
+      "fecha": "2026-10-16",
+      "scope": "Urgentito Ibarra",
+      "leads": 0,
+      "spend": 0.0,
+      "cpl_diario": 0.0,
+      "promedio_movil_7d": 0.0,
+      "impressions": 0,
+      "clicks": 0,
+      "fecha_mes_pasado": "2026-09-16",
+      "leads_mes_pasado": 0,
+      "var_leads_vs_mes_pasado": {
+        "abs": 0,
+        "pct": null
+      },
+      "spend_mes_pasado": 0.0,
+      "var_spend_vs_mes_pasado": {
+        "abs": 0.0,
+        "pct": null
+      }
+    },
+    {
+      "fecha": "2026-10-17",
+      "scope": "Urgentito Ibarra",
+      "leads": 0,
+      "spend": 0.0,
+      "cpl_diario": 0.0,
+      "promedio_movil_7d": 0.0,
+      "impressions": 0,
+      "clicks": 0,
+      "fecha_mes_pasado": "2026-09-17",
+      "leads_mes_pasado": 0,
+      "var_leads_vs_mes_pasado": {
+        "abs": 0,
+        "pct": null
+      },
+      "spend_mes_pasado": 0.0,
+      "var_spend_vs_mes_pasado": {
+        "abs": 0.0,
+        "pct": null
+      }
+    },
+    {
+      "fecha": "2026-10-18",
+      "scope": "Urgentito Ibarra",
+      "leads": 0,
+      "spend": 0.0,
+      "cpl_diario": 0.0,
+      "promedio_movil_7d": 0.0,
+      "impressions": 0,
+      "clicks": 0,
+      "fecha_mes_pasado": "2026-09-18",
+      "leads_mes_pasado": 0,
+      "var_leads_vs_mes_pasado": {
+        "abs": 0,
+        "pct": null
+      },
+      "spend_mes_pasado": 0.0,
+      "var_spend_vs_mes_pasado": {
+        "abs": 0.0,
+        "pct": null
+      }
+    },
+    {
+      "fecha": "2026-10-19",
+      "scope": "Urgentito Ibarra",
+      "leads": 0,
+      "spend": 0.0,
+      "cpl_diario": 0.0,
+      "promedio_movil_7d": 0.0,
+      "impressions": 0,
+      "clicks": 0,
+      "fecha_mes_pasado": "2026-09-19",
+      "leads_mes_pasado": 0,
+      "var_leads_vs_mes_pasado": {
+        "abs": 0,
+        "pct": null
+      },
+      "spend_mes_pasado": 0.0,
+      "var_spend_vs_mes_pasado": {
+        "abs": 0.0,
+        "pct": null
+      }
+    },
+    {
+      "fecha": "2026-10-20",
+      "scope": "Urgentito Ibarra",
+      "leads": 0,
+      "spend": 0.0,
+      "cpl_diario": 0.0,
+      "promedio_movil_7d": 0.0,
+      "impressions": 0,
+      "clicks": 0,
+      "fecha_mes_pasado": "2026-09-20",
+      "leads_mes_pasado": 0,
+      "var_leads_vs_mes_pasado": {
+        "abs": 0,
+        "pct": null
+      },
+      "spend_mes_pasado": 0.0,
+      "var_spend_vs_mes_pasado": {
+        "abs": 0.0,
+        "pct": null
+      }
+    },
+    {
+      "fecha": "2026-10-21",
+      "scope": "Urgentito Ibarra",
+      "leads": 0,
+      "spend": 0.0,
+      "cpl_diario": 0.0,
+      "promedio_movil_7d": 0.0,
+      "impressions": 0,
+      "clicks": 0,
+      "fecha_mes_pasado": "2026-09-21",
+      "leads_mes_pasado": 0,
+      "var_leads_vs_mes_pasado": {
+        "abs": 0,
+        "pct": null
+      },
+      "spend_mes_pasado": 0.0,
+      "var_spend_vs_mes_pasado": {
+        "abs": 0.0,
+        "pct": null
+      }
+    },
+    {
+      "fecha": "2026-10-22",
+      "scope": "Urgentito Ibarra",
+      "leads": 0,
+      "spend": 0.0,
+      "cpl_diario": 0.0,
+      "promedio_movil_7d": 0.0,
+      "impressions": 0,
+      "clicks": 0,
+      "fecha_mes_pasado": "2026-09-22",
+      "leads_mes_pasado": 0,
+      "var_leads_vs_mes_pasado": {
+        "abs": 0,
+        "pct": null
+      },
+      "spend_mes_pasado": 0.0,
+      "var_spend_vs_mes_pasado": {
+        "abs": 0.0,
+        "pct": null
+      }
+    },
+    {
+      "fecha": "2026-10-23",
+      "scope": "Urgentito Ibarra",
+      "leads": 0,
+      "spend": 0.0,
+      "cpl_diario": 0.0,
+      "promedio_movil_7d": 0.0,
+      "impressions": 0,
+      "clicks": 0,
+      "fecha_mes_pasado": "2026-09-23",
+      "leads_mes_pasado": 0,
+      "var_leads_vs_mes_pasado": {
+        "abs": 0,
+        "pct": null
+      },
+      "spend_mes_pasado": 0.0,
+      "var_spend_vs_mes_pasado": {
+        "abs": 0.0,
+        "pct": null
+      }
+    },
+    {
+      "fecha": "2026-10-24",
+      "scope": "Urgentito Ibarra",
+      "leads": 0,
+      "spend": 0.0,
+      "cpl_diario": 0.0,
+      "promedio_movil_7d": 0.0,
+      "impressions": 0,
+      "clicks": 0,
+      "fecha_mes_pasado": "2026-09-24",
+      "leads_mes_pasado": 0,
+      "var_leads_vs_mes_pasado": {
+        "abs": 0,
+        "pct": null
+      },
+      "spend_mes_pasado": 0.0,
+      "var_spend_vs_mes_pasado": {
+        "abs": 0.0,
+        "pct": null
+      }
+    },
+    {
+      "fecha": "2026-10-25",
+      "scope": "Urgentito Ibarra",
+      "leads": 0,
+      "spend": 0.0,
+      "cpl_diario": 0.0,
+      "promedio_movil_7d": 0.0,
+      "impressions": 0,
+      "clicks": 0,
+      "fecha_mes_pasado": "2026-09-25",
+      "leads_mes_pasado": 0,
+      "var_leads_vs_mes_pasado": {
+        "abs": 0,
+        "pct": null
+      },
+      "spend_mes_pasado": 0.0,
+      "var_spend_vs_mes_pasado": {
+        "abs": 0.0,
+        "pct": null
+      }
+    },
+    {
+      "fecha": "2026-10-26",
+      "scope": "Urgentito Ibarra",
+      "leads": 0,
+      "spend": 0.0,
+      "cpl_diario": 0.0,
+      "promedio_movil_7d": 0.0,
+      "impressions": 0,
+      "clicks": 0,
+      "fecha_mes_pasado": "2026-09-26",
+      "leads_mes_pasado": 0,
+      "var_leads_vs_mes_pasado": {
+        "abs": 0,
+        "pct": null
+      },
+      "spend_mes_pasado": 0.0,
+      "var_spend_vs_mes_pasado": {
+        "abs": 0.0,
+        "pct": null
+      }
+    },
+    {
+      "fecha": "2026-10-27",
+      "scope": "Urgentito Ibarra",
+      "leads": 0,
+      "spend": 0.0,
+      "cpl_diario": 0.0,
+      "promedio_movil_7d": 0.0,
+      "impressions": 0,
+      "clicks": 0,
+      "fecha_mes_pasado": "2026-09-27",
+      "leads_mes_pasado": 0,
+      "var_leads_vs_mes_pasado": {
+        "abs": 0,
+        "pct": null
+      },
+      "spend_mes_pasado": 0.0,
+      "var_spend_vs_mes_pasado": {
+        "abs": 0.0,
+        "pct": null
+      }
+    },
+    {
+      "fecha": "2026-10-28",
+      "scope": "Urgentito Ibarra",
+      "leads": 0,
+      "spend": 0.0,
+      "cpl_diario": 0.0,
+      "promedio_movil_7d": 0.0,
+      "impressions": 0,
+      "clicks": 0,
+      "fecha_mes_pasado": "2026-09-28",
+      "leads_mes_pasado": 0,
+      "var_leads_vs_mes_pasado": {
+        "abs": 0,
+        "pct": null
+      },
+      "spend_mes_pasado": 0.0,
+      "var_spend_vs_mes_pasado": {
+        "abs": 0.0,
+        "pct": null
+      }
+    },
+    {
+      "fecha": "2026-10-29",
+      "scope": "Urgentito Ibarra",
+      "leads": 0,
+      "spend": 0.0,
+      "cpl_diario": 0.0,
+      "promedio_movil_7d": 0.0,
+      "impressions": 0,
+      "clicks": 0,
+      "fecha_mes_pasado": "2026-09-29",
+      "leads_mes_pasado": 0,
+      "var_leads_vs_mes_pasado": {
+        "abs": 0,
+        "pct": null
+      },
+      "spend_mes_pasado": 0.0,
+      "var_spend_vs_mes_pasado": {
+        "abs": 0.0,
+        "pct": null
+      }
+    },
+    {
+      "fecha": "2026-10-30",
+      "scope": "Urgentito Ibarra",
+      "leads": 0,
+      "spend": 0.0,
+      "cpl_diario": 0.0,
+      "promedio_movil_7d": 0.0,
+      "impressions": 0,
+      "clicks": 0,
+      "fecha_mes_pasado": "2026-09-30",
+      "leads_mes_pasado": 0,
+      "var_leads_vs_mes_pasado": {
+        "abs": 0,
+        "pct": null
+      },
+      "spend_mes_pasado": 0.0,
+      "var_spend_vs_mes_pasado": {
+        "abs": 0.0,
+        "pct": null
+      }
+    },
+    {
+      "fecha": "2026-10-31",
+      "scope": "Urgentito Ibarra",
+      "leads": 0,
+      "spend": 0.0,
+      "cpl_diario": 0.0,
+      "promedio_movil_7d": 0.0,
+      "impressions": 0,
+      "clicks": 0,
+      "fecha_mes_pasado": "2026-09-30",
+      "leads_mes_pasado": 0,
+      "var_leads_vs_mes_pasado": {
+        "abs": 0,
+        "pct": null
+      },
+      "spend_mes_pasado": 0.0,
+      "var_spend_vs_mes_pasado": {
+        "abs": 0.0,
+        "pct": null
+      }
+    },
+    {
+      "fecha": "2026-11-01",
+      "scope": "Urgentito Ibarra",
+      "leads": 0,
+      "spend": 0.0,
+      "cpl_diario": 0.0,
+      "promedio_movil_7d": 0.0,
+      "impressions": 0,
+      "clicks": 0,
+      "fecha_mes_pasado": "2026-10-01",
+      "leads_mes_pasado": 0,
+      "var_leads_vs_mes_pasado": {
+        "abs": 0,
+        "pct": null
+      },
+      "spend_mes_pasado": 0.0,
+      "var_spend_vs_mes_pasado": {
+        "abs": 0.0,
+        "pct": null
+      }
+    },
+    {
+      "fecha": "2026-11-02",
+      "scope": "Urgentito Ibarra",
+      "leads": 0,
+      "spend": 0.0,
+      "cpl_diario": 0.0,
+      "promedio_movil_7d": 0.0,
+      "impressions": 0,
+      "clicks": 0,
+      "fecha_mes_pasado": "2026-10-02",
+      "leads_mes_pasado": 0,
+      "var_leads_vs_mes_pasado": {
+        "abs": 0,
+        "pct": null
+      },
+      "spend_mes_pasado": 0.0,
+      "var_spend_vs_mes_pasado": {
+        "abs": 0.0,
+        "pct": null
+      }
+    },
+    {
+      "fecha": "2026-11-03",
+      "scope": "Urgentito Ibarra",
+      "leads": 0,
+      "spend": 0.0,
+      "cpl_diario": 0.0,
+      "promedio_movil_7d": 0.0,
+      "impressions": 0,
+      "clicks": 0,
+      "fecha_mes_pasado": "2026-10-03",
+      "leads_mes_pasado": 0,
+      "var_leads_vs_mes_pasado": {
+        "abs": 0,
+        "pct": null
+      },
+      "spend_mes_pasado": 0.0,
+      "var_spend_vs_mes_pasado": {
+        "abs": 0.0,
+        "pct": null
+      }
+    },
+    {
+      "fecha": "2026-11-04",
+      "scope": "Urgentito Ibarra",
+      "leads": 0,
+      "spend": 0.0,
+      "cpl_diario": 0.0,
+      "promedio_movil_7d": 0.0,
+      "impressions": 0,
+      "clicks": 0,
+      "fecha_mes_pasado": "2026-10-04",
+      "leads_mes_pasado": 0,
+      "var_leads_vs_mes_pasado": {
+        "abs": 0,
+        "pct": null
+      },
+      "spend_mes_pasado": 0.0,
+      "var_spend_vs_mes_pasado": {
+        "abs": 0.0,
+        "pct": null
+      }
+    },
+    {
+      "fecha": "2026-11-05",
+      "scope": "Urgentito Ibarra",
+      "leads": 0,
+      "spend": 0.0,
+      "cpl_diario": 0.0,
+      "promedio_movil_7d": 0.0,
+      "impressions": 0,
+      "clicks": 0,
+      "fecha_mes_pasado": "2026-10-05",
+      "leads_mes_pasado": 0,
+      "var_leads_vs_mes_pasado": {
+        "abs": 0,
+        "pct": null
+      },
+      "spend_mes_pasado": 0.0,
+      "var_spend_vs_mes_pasado": {
+        "abs": 0.0,
+        "pct": null
+      }
+    },
+    {
+      "fecha": "2026-11-06",
+      "scope": "Urgentito Ibarra",
+      "leads": 0,
+      "spend": 0.0,
+      "cpl_diario": 0.0,
+      "promedio_movil_7d": 0.0,
+      "impressions": 0,
+      "clicks": 0,
+      "fecha_mes_pasado": "2026-10-06",
+      "leads_mes_pasado": 0,
+      "var_leads_vs_mes_pasado": {
+        "abs": 0,
+        "pct": null
+      },
+      "spend_mes_pasado": 0.0,
+      "var_spend_vs_mes_pasado": {
+        "abs": 0.0,
+        "pct": null
+      }
+    },
+    {
+      "fecha": "2026-11-07",
+      "scope": "Urgentito Ibarra",
+      "leads": 0,
+      "spend": 0.0,
+      "cpl_diario": 0.0,
+      "promedio_movil_7d": 0.0,
+      "impressions": 0,
+      "clicks": 0,
+      "fecha_mes_pasado": "2026-10-07",
+      "leads_mes_pasado": 0,
+      "var_leads_vs_mes_pasado": {
+        "abs": 0,
+        "pct": null
+      },
+      "spend_mes_pasado": 0.0,
+      "var_spend_vs_mes_pasado": {
+        "abs": 0.0,
+        "pct": null
+      }
+    },
+    {
+      "fecha": "2026-11-08",
+      "scope": "Urgentito Ibarra",
+      "leads": 0,
+      "spend": 0.0,
+      "cpl_diario": 0.0,
+      "promedio_movil_7d": 0.0,
+      "impressions": 0,
+      "clicks": 0,
+      "fecha_mes_pasado": "2026-10-08",
+      "leads_mes_pasado": 0,
+      "var_leads_vs_mes_pasado": {
+        "abs": 0,
+        "pct": null
+      },
+      "spend_mes_pasado": 0.0,
+      "var_spend_vs_mes_pasado": {
+        "abs": 0.0,
+        "pct": null
+      }
+    },
+    {
+      "fecha": "2026-11-09",
+      "scope": "Urgentito Ibarra",
+      "leads": 0,
+      "spend": 0.0,
+      "cpl_diario": 0.0,
+      "promedio_movil_7d": 0.0,
+      "impressions": 0,
+      "clicks": 0,
+      "fecha_mes_pasado": "2026-10-09",
+      "leads_mes_pasado": 0,
+      "var_leads_vs_mes_pasado": {
+        "abs": 0,
+        "pct": null
+      },
+      "spend_mes_pasado": 0.0,
+      "var_spend_vs_mes_pasado": {
+        "abs": 0.0,
+        "pct": null
+      }
+    },
+    {
+      "fecha": "2026-11-10",
+      "scope": "Urgentito Ibarra",
+      "leads": 0,
+      "spend": 0.0,
+      "cpl_diario": 0.0,
+      "promedio_movil_7d": 0.0,
+      "impressions": 0,
+      "clicks": 0,
+      "fecha_mes_pasado": "2026-10-10",
+      "leads_mes_pasado": 0,
+      "var_leads_vs_mes_pasado": {
+        "abs": 0,
+        "pct": null
+      },
+      "spend_mes_pasado": 0.0,
+      "var_spend_vs_mes_pasado": {
+        "abs": 0.0,
+        "pct": null
+      }
+    },
+    {
+      "fecha": "2026-11-11",
+      "scope": "Urgentito Ibarra",
+      "leads": 0,
+      "spend": 0.0,
+      "cpl_diario": 0.0,
+      "promedio_movil_7d": 0.0,
+      "impressions": 0,
+      "clicks": 0,
+      "fecha_mes_pasado": "2026-10-11",
+      "leads_mes_pasado": 0,
+      "var_leads_vs_mes_pasado": {
+        "abs": 0,
+        "pct": null
+      },
+      "spend_mes_pasado": 0.0,
+      "var_spend_vs_mes_pasado": {
+        "abs": 0.0,
+        "pct": null
+      }
+    },
+    {
+      "fecha": "2026-11-12",
+      "scope": "Urgentito Ibarra",
+      "leads": 0,
+      "spend": 0.0,
+      "cpl_diario": 0.0,
+      "promedio_movil_7d": 0.0,
+      "impressions": 0,
+      "clicks": 0,
+      "fecha_mes_pasado": "2026-10-12",
+      "leads_mes_pasado": 0,
+      "var_leads_vs_mes_pasado": {
+        "abs": 0,
+        "pct": null
+      },
+      "spend_mes_pasado": 0.0,
+      "var_spend_vs_mes_pasado": {
+        "abs": 0.0,
+        "pct": null
+      }
+    },
+    {
+      "fecha": "2026-11-13",
+      "scope": "Urgentito Ibarra",
+      "leads": 0,
+      "spend": 0.0,
+      "cpl_diario": 0.0,
+      "promedio_movil_7d": 0.0,
+      "impressions": 0,
+      "clicks": 0,
+      "fecha_mes_pasado": "2026-10-13",
+      "leads_mes_pasado": 0,
+      "var_leads_vs_mes_pasado": {
+        "abs": 0,
+        "pct": null
+      },
+      "spend_mes_pasado": 0.0,
+      "var_spend_vs_mes_pasado": {
+        "abs": 0.0,
+        "pct": null
+      }
+    },
+    {
+      "fecha": "2026-11-14",
+      "scope": "Urgentito Ibarra",
+      "leads": 0,
+      "spend": 0.0,
+      "cpl_diario": 0.0,
+      "promedio_movil_7d": 0.0,
+      "impressions": 0,
+      "clicks": 0,
+      "fecha_mes_pasado": "2026-10-14",
+      "leads_mes_pasado": 0,
+      "var_leads_vs_mes_pasado": {
+        "abs": 0,
+        "pct": null
+      },
+      "spend_mes_pasado": 0.0,
+      "var_spend_vs_mes_pasado": {
+        "abs": 0.0,
+        "pct": null
+      }
+    },
+    {
+      "fecha": "2026-11-15",
+      "scope": "Urgentito Ibarra",
+      "leads": 0,
+      "spend": 0.0,
+      "cpl_diario": 0.0,
+      "promedio_movil_7d": 0.0,
+      "impressions": 0,
+      "clicks": 0,
+      "fecha_mes_pasado": "2026-10-15",
+      "leads_mes_pasado": 0,
+      "var_leads_vs_mes_pasado": {
+        "abs": 0,
+        "pct": null
+      },
+      "spend_mes_pasado": 0.0,
+      "var_spend_vs_mes_pasado": {
+        "abs": 0.0,
+        "pct": null
+      }
+    },
+    {
+      "fecha": "2026-11-16",
+      "scope": "Urgentito Ibarra",
+      "leads": 0,
+      "spend": 0.0,
+      "cpl_diario": 0.0,
+      "promedio_movil_7d": 0.0,
+      "impressions": 0,
+      "clicks": 0,
+      "fecha_mes_pasado": "2026-10-16",
+      "leads_mes_pasado": 0,
+      "var_leads_vs_mes_pasado": {
+        "abs": 0,
+        "pct": null
+      },
+      "spend_mes_pasado": 0.0,
+      "var_spend_vs_mes_pasado": {
+        "abs": 0.0,
+        "pct": null
+      }
+    },
+    {
+      "fecha": "2026-11-17",
+      "scope": "Urgentito Ibarra",
+      "leads": 0,
+      "spend": 0.0,
+      "cpl_diario": 0.0,
+      "promedio_movil_7d": 0.0,
+      "impressions": 0,
+      "clicks": 0,
+      "fecha_mes_pasado": "2026-10-17",
+      "leads_mes_pasado": 0,
+      "var_leads_vs_mes_pasado": {
+        "abs": 0,
+        "pct": null
+      },
+      "spend_mes_pasado": 0.0,
+      "var_spend_vs_mes_pasado": {
+        "abs": 0.0,
+        "pct": null
+      }
+    },
+    {
+      "fecha": "2026-11-18",
+      "scope": "Urgentito Ibarra",
+      "leads": 0,
+      "spend": 0.0,
+      "cpl_diario": 0.0,
+      "promedio_movil_7d": 0.0,
+      "impressions": 0,
+      "clicks": 0,
+      "fecha_mes_pasado": "2026-10-18",
+      "leads_mes_pasado": 0,
+      "var_leads_vs_mes_pasado": {
+        "abs": 0,
+        "pct": null
+      },
+      "spend_mes_pasado": 0.0,
+      "var_spend_vs_mes_pasado": {
+        "abs": 0.0,
+        "pct": null
+      }
+    },
+    {
+      "fecha": "2026-11-19",
+      "scope": "Urgentito Ibarra",
+      "leads": 0,
+      "spend": 0.0,
+      "cpl_diario": 0.0,
+      "promedio_movil_7d": 0.0,
+      "impressions": 0,
+      "clicks": 0,
+      "fecha_mes_pasado": "2026-10-19",
+      "leads_mes_pasado": 0,
+      "var_leads_vs_mes_pasado": {
+        "abs": 0,
+        "pct": null
+      },
+      "spend_mes_pasado": 0.0,
+      "var_spend_vs_mes_pasado": {
+        "abs": 0.0,
+        "pct": null
+      }
+    },
+    {
+      "fecha": "2026-11-20",
+      "scope": "Urgentito Ibarra",
+      "leads": 0,
+      "spend": 0.0,
+      "cpl_diario": 0.0,
+      "promedio_movil_7d": 0.0,
+      "impressions": 0,
+      "clicks": 0,
+      "fecha_mes_pasado": "2026-10-20",
+      "leads_mes_pasado": 0,
+      "var_leads_vs_mes_pasado": {
+        "abs": 0,
+        "pct": null
+      },
+      "spend_mes_pasado": 0.0,
+      "var_spend_vs_mes_pasado": {
+        "abs": 0.0,
+        "pct": null
+      }
+    },
+    {
+      "fecha": "2026-11-21",
+      "scope": "Urgentito Ibarra",
+      "leads": 0,
+      "spend": 0.0,
+      "cpl_diario": 0.0,
+      "promedio_movil_7d": 0.0,
+      "impressions": 0,
+      "clicks": 0,
+      "fecha_mes_pasado": "2026-10-21",
+      "leads_mes_pasado": 0,
+      "var_leads_vs_mes_pasado": {
+        "abs": 0,
+        "pct": null
+      },
+      "spend_mes_pasado": 0.0,
+      "var_spend_vs_mes_pasado": {
+        "abs": 0.0,
+        "pct": null
+      }
+    },
+    {
+      "fecha": "2026-11-22",
+      "scope": "Urgentito Ibarra",
+      "leads": 0,
+      "spend": 0.0,
+      "cpl_diario": 0.0,
+      "promedio_movil_7d": 0.0,
+      "impressions": 0,
+      "clicks": 0,
+      "fecha_mes_pasado": "2026-10-22",
+      "leads_mes_pasado": 0,
+      "var_leads_vs_mes_pasado": {
+        "abs": 0,
+        "pct": null
+      },
+      "spend_mes_pasado": 0.0,
+      "var_spend_vs_mes_pasado": {
+        "abs": 0.0,
+        "pct": null
+      }
+    },
+    {
+      "fecha": "2026-11-23",
+      "scope": "Urgentito Ibarra",
+      "leads": 0,
+      "spend": 0.0,
+      "cpl_diario": 0.0,
+      "promedio_movil_7d": 0.0,
+      "impressions": 0,
+      "clicks": 0,
+      "fecha_mes_pasado": "2026-10-23",
+      "leads_mes_pasado": 0,
+      "var_leads_vs_mes_pasado": {
+        "abs": 0,
+        "pct": null
+      },
+      "spend_mes_pasado": 0.0,
+      "var_spend_vs_mes_pasado": {
+        "abs": 0.0,
+        "pct": null
+      }
+    },
+    {
+      "fecha": "2026-11-24",
+      "scope": "Urgentito Ibarra",
+      "leads": 0,
+      "spend": 0.0,
+      "cpl_diario": 0.0,
+      "promedio_movil_7d": 0.0,
+      "impressions": 0,
+      "clicks": 0,
+      "fecha_mes_pasado": "2026-10-24",
+      "leads_mes_pasado": 0,
+      "var_leads_vs_mes_pasado": {
+        "abs": 0,
+        "pct": null
+      },
+      "spend_mes_pasado": 0.0,
+      "var_spend_vs_mes_pasado": {
+        "abs": 0.0,
+        "pct": null
+      }
+    },
+    {
+      "fecha": "2026-11-25",
+      "scope": "Urgentito Ibarra",
+      "leads": 0,
+      "spend": 0.0,
+      "cpl_diario": 0.0,
+      "promedio_movil_7d": 0.0,
+      "impressions": 0,
+      "clicks": 0,
+      "fecha_mes_pasado": "2026-10-25",
+      "leads_mes_pasado": 0,
+      "var_leads_vs_mes_pasado": {
+        "abs": 0,
+        "pct": null
+      },
+      "spend_mes_pasado": 0.0,
+      "var_spend_vs_mes_pasado": {
+        "abs": 0.0,
+        "pct": null
+      }
+    },
+    {
+      "fecha": "2026-11-26",
+      "scope": "Urgentito Ibarra",
+      "leads": 0,
+      "spend": 0.0,
+      "cpl_diario": 0.0,
+      "promedio_movil_7d": 0.0,
+      "impressions": 0,
+      "clicks": 0,
+      "fecha_mes_pasado": "2026-10-26",
+      "leads_mes_pasado": 0,
+      "var_leads_vs_mes_pasado": {
+        "abs": 0,
+        "pct": null
+      },
+      "spend_mes_pasado": 0.0,
+      "var_spend_vs_mes_pasado": {
+        "abs": 0.0,
+        "pct": null
+      }
+    },
+    {
+      "fecha": "2026-11-27",
+      "scope": "Urgentito Ibarra",
+      "leads": 0,
+      "spend": 0.0,
+      "cpl_diario": 0.0,
+      "promedio_movil_7d": 0.0,
+      "impressions": 0,
+      "clicks": 0,
+      "fecha_mes_pasado": "2026-10-27",
+      "leads_mes_pasado": 0,
+      "var_leads_vs_mes_pasado": {
+        "abs": 0,
+        "pct": null
+      },
+      "spend_mes_pasado": 0.0,
+      "var_spend_vs_mes_pasado": {
+        "abs": 0.0,
+        "pct": null
       }
     }
   ],
@@ -8454,11 +11028,11 @@
         "campaign_name": "[SMS Venta][Pintura completa][Call][Sept]",
         "status": "ACTIVE",
         "daily_budget": 0.0,
-        "gasto_actual": 1030.42,
+        "gasto_actual": 1033.38,
         "gasto_mes_pasado": 875.57,
         "var_gasto": {
-          "abs": 154.85,
-          "pct": 17.7
+          "abs": 157.81,
+          "pct": 18.0
         },
         "leads_actual": 406,
         "leads_mes_pasado": 380,
@@ -8466,7 +11040,7 @@
           "abs": 26,
           "pct": 6.8
         },
-        "cpl_actual": 2.54
+        "cpl_actual": 2.55
       },
       {
         "brand": "Urgentito Talleres",
@@ -8492,29 +11066,29 @@
         "campaign_name": "🟢 [INTERMEDIACION][FORMS][NOV]",
         "status": "ACTIVE",
         "daily_budget": 29.0,
-        "gasto_actual": 732.94,
+        "gasto_actual": 734.59,
         "gasto_mes_pasado": 778.78,
         "var_gasto": {
-          "abs": -45.84,
-          "pct": -5.9
+          "abs": -44.19,
+          "pct": -5.7
         },
-        "leads_actual": 225,
+        "leads_actual": 226,
         "leads_mes_pasado": 240,
         "var_leads": {
-          "abs": -15,
-          "pct": -6.2
+          "abs": -14,
+          "pct": -5.8
         },
-        "cpl_actual": 3.26
+        "cpl_actual": 3.25
       },
       {
         "brand": "Urgentito Talleres",
         "campaign_name": "[Formulario][Pintura][18-11-2026]",
         "status": "ACTIVE",
         "daily_budget": 0.0,
-        "gasto_actual": 196.21,
+        "gasto_actual": 198.09,
         "gasto_mes_pasado": 0.0,
         "var_gasto": {
-          "abs": 196.21,
+          "abs": 198.09,
           "pct": null
         },
         "leads_actual": 68,
@@ -8523,26 +11097,26 @@
           "abs": 68,
           "pct": null
         },
-        "cpl_actual": 2.89
+        "cpl_actual": 2.91
       },
       {
         "brand": "Urgentito Ambato",
         "campaign_name": "[LEADS][VENTAS][CREDITO][URG AMBATO][NOV]",
         "status": "ACTIVE",
         "daily_budget": 15.0,
-        "gasto_actual": 191.45,
+        "gasto_actual": 192.19,
         "gasto_mes_pasado": 0.0,
         "var_gasto": {
-          "abs": 191.45,
+          "abs": 192.19,
           "pct": null
         },
-        "leads_actual": 87,
+        "leads_actual": 88,
         "leads_mes_pasado": 0,
         "var_leads": {
-          "abs": 87,
+          "abs": 88,
           "pct": null
         },
-        "cpl_actual": 2.2
+        "cpl_actual": 2.18
       },
       {
         "brand": "Urgentito Ambato",
@@ -8583,14 +11157,33 @@
         "cpl_actual": 0.26
       },
       {
+        "brand": "Urgentito Ambato",
+        "campaign_name": "[Form OK][Reclutamiento Asesores][Ambato][Nov2026]",
+        "status": "ACTIVE",
+        "daily_budget": 0.0,
+        "gasto_actual": 57.06,
+        "gasto_mes_pasado": 0.0,
+        "var_gasto": {
+          "abs": 57.06,
+          "pct": null
+        },
+        "leads_actual": 93,
+        "leads_mes_pasado": 0,
+        "var_leads": {
+          "abs": 93,
+          "pct": null
+        },
+        "cpl_actual": 0.61
+      },
+      {
         "brand": "Urgentito Talleres",
         "campaign_name": "[SMS][REMARKETING][AUTOCOLORFEST]",
         "status": "ACTIVE",
         "daily_budget": 15.0,
-        "gasto_actual": 55.82,
+        "gasto_actual": 56.73,
         "gasto_mes_pasado": 0.0,
         "var_gasto": {
-          "abs": 55.82,
+          "abs": 56.73,
           "pct": null
         },
         "leads_actual": 25,
@@ -8599,26 +11192,7 @@
           "abs": 25,
           "pct": null
         },
-        "cpl_actual": 2.23
-      },
-      {
-        "brand": "Urgentito Ambato",
-        "campaign_name": "[Form OK][Reclutamiento Asesores][Ambato][Nov2026]",
-        "status": "ACTIVE",
-        "daily_budget": 0.0,
-        "gasto_actual": 54.6,
-        "gasto_mes_pasado": 0.0,
-        "var_gasto": {
-          "abs": 54.6,
-          "pct": null
-        },
-        "leads_actual": 92,
-        "leads_mes_pasado": 0,
-        "var_leads": {
-          "abs": 92,
-          "pct": null
-        },
-        "cpl_actual": 0.59
+        "cpl_actual": 2.27
       },
       {
         "brand": "Urgentito Ambato",
@@ -14610,7 +17184,7 @@
       "campaign_name": "[SMS Venta][Pintura completa][Call][Sept]",
       "status": "ACTIVE",
       "daily_budget": 0.0,
-      "spend": 6.47,
+      "spend": 9.43,
       "leads": 2
     },
     {
@@ -14621,7 +17195,7 @@
       "campaign_name": "[Formulario][Pintura][18-11-2026]",
       "status": "ACTIVE",
       "daily_budget": 0.0,
-      "spend": 4.87,
+      "spend": 6.75,
       "leads": 3
     },
     {
@@ -14632,7 +17206,7 @@
       "campaign_name": "[SMS][REMARKETING][AUTOCOLORFEST]",
       "status": "ACTIVE",
       "daily_budget": 15.0,
-      "spend": 5.09,
+      "spend": 6.0,
       "leads": 1
     },
     {
@@ -17987,7 +20561,7 @@
       "campaign_name": "[LEADS][VENTAS][CREDITO][URG AMBATO][NOV]",
       "status": "ACTIVE",
       "daily_budget": 15.0,
-      "spend": 16.69,
+      "spend": 16.74,
       "leads": 30
     },
     {
@@ -17998,7 +20572,7 @@
       "campaign_name": "[Form OK][Reclutamiento Asesores][Ambato][Nov2026]",
       "status": "ACTIVE",
       "daily_budget": 0.0,
-      "spend": 20.74,
+      "spend": 20.76,
       "leads": 33
     },
     {
@@ -18009,8 +20583,8 @@
       "campaign_name": "🟢 [INTERMEDIACION][FORMS][NOV]",
       "status": "ACTIVE",
       "daily_budget": 29.0,
-      "spend": 5.24,
-      "leads": 4
+      "spend": 6.89,
+      "leads": 5
     },
     {
       "fecha": "2026-11-27",
@@ -18020,8 +20594,8 @@
       "campaign_name": "[LEADS][VENTAS][CREDITO][URG AMBATO][NOV]",
       "status": "ACTIVE",
       "daily_budget": 15.0,
-      "spend": 5.73,
-      "leads": 9
+      "spend": 6.42,
+      "leads": 10
     },
     {
       "fecha": "2026-11-27",
@@ -18042,8 +20616,8 @@
       "campaign_name": "[Form OK][Reclutamiento Asesores][Ambato][Nov2026]",
       "status": "ACTIVE",
       "daily_budget": 0.0,
-      "spend": 6.71,
-      "leads": 8
+      "spend": 9.15,
+      "leads": 9
     }
   ]
 }
