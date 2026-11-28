@@ -20,17 +20,17 @@
       {
         "brand": "Urgentito Talleres",
         "account_id": "1394825968565785",
-        "error": "Error /insights act_1394825968565785 (400): {\"error\":{\"message\":\"Error validating access token: Session has expired on Friday, 27-Nov-26 10:00:00 PST. The current time is Friday, 27-Nov-26 17:28:33 PST.\",\"type\":\"OAuthException\",\"code\":190,\"error_subcode\":463,\"fbtrace_id\":\"A9P1emN1N9KigiPQmXSVzAu\"}}"
+        "error": "Error /insights act_1394825968565785 (400): {\"error\":{\"message\":\"Error validating access token: Session has expired on Friday, 27-Nov-26 10:00:00 PST. The current time is Friday, 27-Nov-26 20:45:34 PST.\",\"type\":\"OAuthException\",\"code\":190,\"error_subcode\":463,\"fbtrace_id\":\"Aah3ReF6pTcr3ruFMwLXZSR\"}}"
       },
       {
         "brand": "Urgentito Ambato",
         "account_id": "428965856955069",
-        "error": "Error /insights act_428965856955069 (400): {\"error\":{\"message\":\"Error validating access token: Session has expired on Friday, 27-Nov-26 10:00:00 PST. The current time is Friday, 27-Nov-26 17:28:33 PST.\",\"type\":\"OAuthException\",\"code\":190,\"error_subcode\":463,\"fbtrace_id\":\"ALexyrKdR7518nD2D7omu2L\"}}"
+        "error": "Error /insights act_428965856955069 (400): {\"error\":{\"message\":\"Error validating access token: Session has expired on Friday, 27-Nov-26 10:00:00 PST. The current time is Friday, 27-Nov-26 20:45:34 PST.\",\"type\":\"OAuthException\",\"code\":190,\"error_subcode\":463,\"fbtrace_id\":\"ALcFFBj4oTn_zFtJenrFe7p\"}}"
       },
       {
         "brand": "Urgentito Ibarra",
         "account_id": "2879403735555269",
-        "error": "Error /insights act_2879403735555269 (400): {\"error\":{\"message\":\"Error validating access token: Session has expired on Friday, 27-Nov-26 10:00:00 PST. The current time is Friday, 27-Nov-26 17:28:34 PST.\",\"type\":\"OAuthException\",\"code\":190,\"error_subcode\":463,\"fbtrace_id\":\"AeUrLHOUwWxRLn89AHxBs1d\"}}"
+        "error": "Error /insights act_2879403735555269 (400): {\"error\":{\"message\":\"Error validating access token: Session has expired on Friday, 27-Nov-26 10:00:00 PST. The current time is Friday, 27-Nov-26 20:45:34 PST.\",\"type\":\"OAuthException\",\"code\":190,\"error_subcode\":463,\"fbtrace_id\":\"AwiOwM4J5h9ipjlMz8ZuZ5u\"}}"
       }
     ]
   },
